@@ -4,6 +4,7 @@ path = os.path.dirname(__file__)
 
 # all plugins in /plugins directory
 plugins = os.listdir(path + "/plugins")
+
 plugins.remove('standart_output.py')
 
 
@@ -26,7 +27,7 @@ kitty_name = "Kitty"
 chat_rectangle_place = (500, 50, 600, 500)
 
 count_messages_visible = 15
-maxlen_message = 100
+maxlen_message = 65
 
 chat_kitty_text = (255, 192, 203)
 
