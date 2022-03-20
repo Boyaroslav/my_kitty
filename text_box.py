@@ -1,7 +1,7 @@
 #  box class where the input is rendered
 import pygame
 import chat_history
-from config import maxlen_message
+from config import maxlen_message, button_color1, path
 
 '''
 Bobyler Yaroslav 2022
@@ -49,4 +49,10 @@ class TextBox:
 
     def isactive(self):
         return self.active
+    def draw_clear_button(self):
+        pygame.draw.rect(self.root, button_color1, (self.place[0] + self.place[2] + 10, self.place[1], self.place[3] // 2, self.place[3] // 2))
+        arrow = pygame.image.load(path + "/arrow.png")
+        self.root.blit(arrow, (self.place[0] + self.place[2] + 10, self.place[1]))
+    def clear(self):
+        self.text = []
     

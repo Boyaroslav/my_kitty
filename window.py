@@ -58,6 +58,8 @@ while True:
                 x, y = pygame.mouse.get_pos()
                 if (x >= text_box_place[0] and x <= text_box_place[0] + text_box_place[2]) and (y >= text_box_place[1] and y <= text_box_place[1] + text_box_place[3]):
                     box.active
+                elif (x >= text_box_place[0] + text_box_place[2] +10 and x <= text_box_place[0] + text_box_place[2] +10 + (text_box_place[3] // 2) and y >= text_box_place[1] and y <= text_box_place[1] + (text_box_place[3] // 2)):
+                    box.clear()
                 else:
                     box.disactive
         if i.type == pygame.KEYDOWN and box.isactive:
@@ -80,6 +82,7 @@ while True:
 
     chat.draw()
     box.draw_bar()
+    box.draw_clear_button()
 
 
     pygame.display.update()

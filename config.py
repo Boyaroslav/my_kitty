@@ -31,6 +31,8 @@ maxlen_message = 65
 
 chat_kitty_text = (255, 192, 203)
 
+button_color1 = (250, 100, 100)
+
 kitty_picture = path + "/kitty.jpg"
 
 border_size = 5  #  pixels
