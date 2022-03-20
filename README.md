@@ -7,8 +7,8 @@
   <a href="https://github.com/cursedriver13">
          <img alt="Qries" src="https://cdn-icons-png.flaticon.com/512/889/889192.png"
          width=30" height="30">
-   <a href="https://instagram.com/bo_yaroslav.py">
-         <img alt="Qries" src=" https://lh3.googleusercontent.com/-RrkrJ2CP0yM/AAAAAAAAAAI/AAAAAAAAHfw/BS-RJRW0NNk/s640/photo.jpg"
+   <a href="https://github.com/Boyaroslav">
+         <img alt="Qries" src="https://bitemycoin.com/wp-content/uploads/2018/06/GitHub-Logo.png"
          width=30" height="30">
   
 
