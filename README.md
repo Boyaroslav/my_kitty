@@ -15,4 +15,5 @@
   <h3>Cursedriver - i dont know</h3>
   
   
-
+to install -> pip install -r requirements.txt
+to start -> python3 main.py
