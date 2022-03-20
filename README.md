@@ -11,8 +11,8 @@
          <img alt="Qries" src="https://bitemycoin.com/wp-content/uploads/2018/06/GitHub-Logo.png"
          width=30" height="30">
  <br />
-  Boyaroslav - maintainer/He uses arch btw
-  Cursedriver - i dont know
+  <h3>Boyaroslav - maintainer/He uses arch btw</h3>
+  <h3>Cursedriver - i dont know</h3>
   
   
 
