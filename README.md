@@ -10,6 +10,9 @@
    <a href="https://github.com/Boyaroslav">
          <img alt="Qries" src="https://bitemycoin.com/wp-content/uploads/2018/06/GitHub-Logo.png"
          width=30" height="30">
+  Boyaroslav - maintainer/He uses arch btw
+  Cursedriver - i dont know
+  
   
 
 <br />
