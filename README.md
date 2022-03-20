@@ -15,6 +15,6 @@
   <h3>Cursedriver - i dont know</h3>
   
   
-  <h2>to install -> pip install -r requirements.txt</h2>
+  <h4>to install -> pip install -r requirements.txt</h4>
   <br/>
-  <h2>to start -> python3 main.py</h2>
+  <h4>to start -> python3 main.py</h4>
