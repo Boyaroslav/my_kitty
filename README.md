@@ -3,6 +3,6 @@
 
 
 
-[<img align="left" alt="https://cdn-icons-png.flaticon.com/512/889/889192.png" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/linkedin.svg" />]
+[<img align="left" alt="https://cdn-icons-png.flaticon.com/512/889/889192.png" width="22px" src="github.com/cursedriver13" />]
 <br />
 
