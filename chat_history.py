@@ -1,6 +1,11 @@
 import config
 from chat_parser import pop_last
 
+'''
+Bobyler Yaroslav 2022
+github - https://github.com/Boyaroslav
+'''
+
 
 name = config.kitty_name
 

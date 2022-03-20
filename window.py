@@ -4,6 +4,10 @@ from text_box import TextBox
 from config import *
 from chat_render import *  
 from chat_history import *
+'''
+Bobylev Yaroslav 2022
+This script use pygame library to render the window
+'''
 
 pygame.init() 
 
