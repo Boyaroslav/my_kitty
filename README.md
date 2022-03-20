@@ -3,7 +3,12 @@
 
 
 
-[<img align="left" alt="https://gihub.com/cursedriver13" width="22px" src="https://cdn-icons-png.flaticon.com/512/889/889192.png"" />]
 
+  <a href="https://github.com/cusedriver13">
+         <img alt="Qries" src="https://cdn-icons-png.flaticon.com/512/889/889192.png"
+         width=150" height="70">
+  
+  
+  
 <br />
 
