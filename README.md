@@ -3,7 +3,7 @@
 
 
 
-[<img align="left" alt="  https://github.com/cursedriver13" width="22px" src="https://cdn-icons-png.flaticon.com/512/889/889192.png" />]
+[<img align="left" alt="  https://github.com/cursedriver13" width="22px" src="https://github.com/cursedriver13" />]
 
 <br />
 
