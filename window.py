@@ -51,7 +51,6 @@ def draw_need_borders():
 while True:
     for i in pygame.event.get():
         if i.type == pygame.QUIT:
-            print(box.text)
             quit()
         if i.type == pygame.MOUSEBUTTONDOWN:
             if i.button == 1 :
