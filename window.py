@@ -25,6 +25,9 @@ main_font = pygame.font.Font(text_font, 25)
 main_chr = pygame.image.load(kitty_picture)
 main_chr = pygame.transform.scale(main_chr, kitty_image_size)  # rescaling to border size
 
+#  window icon
+
+pygame.display.set_icon(main_chr)
 
 #  bar to input text
 
