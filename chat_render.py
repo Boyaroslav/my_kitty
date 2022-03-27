@@ -1,9 +1,9 @@
 import pygame
-from chat_history import *
+
 import config
 
 '''
-Bobyler Yaroslav 2022
+Bobylev Yaroslav 2022
 github - https://github.com/Boyaroslav
 '''
 
@@ -15,6 +15,7 @@ class Chat:
         self.color = color
         self.font = font
     def draw(self):
+        from chat_history import history
         
         pygame.draw.rect(self.root, self.BGcolor, self.place)
         end = len(history) - config.count_messages_visible

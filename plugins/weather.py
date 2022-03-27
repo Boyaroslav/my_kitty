@@ -3,7 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 
 '''
-Bobyler Yaroslav 2022
+Bobylev Yaroslav 2022
 github - https://github.com/Boyaroslav
 need beautifulsoup4 module
 '''

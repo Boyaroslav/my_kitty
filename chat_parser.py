@@ -3,7 +3,7 @@ from config import path, plugins,kitty_name
 import os
 
 '''
-Bobyler Yaroslav 2022
+Bobylev Yaroslav 2022
 github - https://github.com/Boyaroslav
 '''
 
@@ -60,4 +60,6 @@ def pop_last(msg):
         ans = os.popen(f'python3 {path}/plugins/standart_output.py').read()
         chat_history.send_msg(ans[:-1], user=kitty_name)
         print("hui", ans)
+    
+
 

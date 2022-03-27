@@ -1,6 +1,6 @@
 from sys import argv
 '''
-Bobyler Yaroslav 2022
+Bobylev Yaroslav 2022
 github - https://github.com/Boyaroslav
 '''
 need = ["помощь", "помоги", "help", "что делать"]

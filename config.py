@@ -1,3 +1,9 @@
+'''
+Bobylev Yaroslav 2022
+github - https://github.com/Boyaroslav
+'''
+
+
 import os
 
 path = os.path.dirname(__file__)

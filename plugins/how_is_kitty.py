@@ -3,7 +3,7 @@ from sys import argv
 from random import choice
 
 '''
-Bobyler Yaroslav 2022
+Bobylev Yaroslav 2022
 github - https://github.com/Boyaroslav
 '''
 

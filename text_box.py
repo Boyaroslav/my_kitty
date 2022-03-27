@@ -4,7 +4,7 @@ import chat_history
 from config import maxlen_message, button_color1, path
 
 '''
-Bobyler Yaroslav 2022
+Bobylev Yaroslav 2022
 github - https://github.com/Boyaroslav
 '''
 
