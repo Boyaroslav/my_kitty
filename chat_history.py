@@ -1,5 +1,4 @@
 import config
-from chat_parser import pop_last
 
 '''
 Bobylev Yaroslav 2022
@@ -12,28 +11,28 @@ name = config.kitty_name
 
 
 # you can change start message ^ ^
-global history
+class History:
+    def __init__(self):
+        self.array = [
+        [name, "Привет! Рада Тебя видеть!"]
+        ]
+        self.pop_last = None
+    
+    def send_msg(self, msg, user="you"):
+        self.array.append([user, msg])
+        if user == "you":
+            self.pop_last(self.array[-1])
 
-history = [
-    [name, "Привет! Рада Тебя видеть!"]
-]
+    def clear_chat_history(self):
+        self.array.clear()
 
+    def get_history(self):
+        return self.array
 
-def send_msg(msg, user="you"):
-    global history
-    history.append([user, msg])
-    if user == "you":
-        pop_last(history[-1])
+    def __getitem__(self, i):
+        return self.array[i]
+
+    def __len__(self):
+        return len(self.array)
 
     
-
-def clear_chat_history():
-    global history
-    del history[0]
-
-
-def print_history():
-    global history
-    print(history)
-
-

@@ -1,7 +1,6 @@
 #  box class where the input is rendered
 import pygame
-import chat_history
-from config import maxlen_message, button_color1, path
+
 
 '''
 Bobylev Yaroslav 2022
@@ -9,7 +8,7 @@ github - https://github.com/Boyaroslav
 '''
 
 class TextBox:
-    def __init__(self, root, color, BGcolor, place, font):
+    def __init__(self, root, color, BGcolor, place, font, history, maxlen_message, button_color1, path):
         self.color1 = color
         self.BGcolor = BGcolor
         self.place = place
@@ -18,12 +17,16 @@ class TextBox:
         self.color = color
         self.text = []
         self.active = 0
+        self.history = history
+        self.maxlen_message = maxlen_message
+        self.button_color1 = button_color1
+        self.path = path
     def draw_bar(self):
         pygame.draw.rect(self.root, self.color1, self.place)
-        if len(self.text) < maxlen_message:
+        if len(self.text) < self.maxlen_message:
             leng = 0
         else:
-            leng = len(self.text) - maxlen_message
+            leng = len(self.text) - self.maxlen_message
         if self.active:
             #  dont work
             pygame.draw.rect(self.root, (0,0,0), (self.place[0] + (len(self.text[leng:]) * 25), self.place[1], 20, self.place[3]))
@@ -39,7 +42,7 @@ class TextBox:
         self.text.append(input)
         
         if input == "\r" and len(self.text) > 1:
-            chat_history.send_msg(''.join(self.text).replace('\r', ''))
+            self.history.send_msg(''.join(self.text).replace('\r', ''))
             self.text = []
 
 
@@ -50,8 +53,8 @@ class TextBox:
     def isactive(self):
         return self.active
     def draw_clear_button(self):
-        pygame.draw.rect(self.root, button_color1, (self.place[0] + self.place[2] + 10, self.place[1], self.place[3] // 2, self.place[3] // 2))
-        arrow = pygame.image.load(path + "/arrow.png")
+        pygame.draw.rect(self.root, self.button_color1, (self.place[0] + self.place[2] + 10, self.place[1], self.place[3] // 2, self.place[3] // 2))
+        arrow = pygame.image.load(self.path + "/arrow.png")
         self.root.blit(arrow, (self.place[0] + self.place[2] + 10, self.place[1]))
     def clear(self):
         self.text = []

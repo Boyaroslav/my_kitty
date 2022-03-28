@@ -6,6 +6,7 @@ Bobyler Yaroslav 2022
 github - https://github.com/Boyaroslav
 '''
 
+#  это конечно кабздец костыль, надо фиксить
 
 answers = ["пока(", "прощай...", "пока", "удачи.", "bye-bye", "goodbye", "чао :("]
 

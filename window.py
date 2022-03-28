@@ -2,8 +2,12 @@ import pygame
 import time
 from text_box import TextBox
 from config import *
-from chat_render import *  
-from chat_history import *
+from chat_render import Chat 
+from chat_history import History as hist
+from chat_parser import Parser
+
+
+
 '''
 Bobylev Yaroslav 2022
 This script use pygame library to render the window
@@ -18,6 +22,14 @@ root = pygame.display.set_mode((1200, 700))
 pygame.display.set_caption("your kitty :)")
 clock = pygame.time.Clock()
 main_font = pygame.font.Font(text_font, 25)
+history = hist()
+parser = Parser(history)
+history.pop_last = parser.pop_last
+
+
+
+def clear_chat_history():
+    history.clear_chat_history()
 
 
 #  importing files
@@ -31,7 +43,7 @@ pygame.display.set_icon(main_chr)
 
 #  bar to input text
 
-box = TextBox(root, chat_kitty_text, box_color, text_box_place, main_font)
+box = TextBox(root, chat_kitty_text, box_color, text_box_place, main_font, history,  maxlen_message, button_color1, path)
 
 
 is_backspace = 0
@@ -49,6 +61,10 @@ def draw_need_borders():
 
 
     pygame.draw.rect(root, BorderColor, chat_rectangle_place)  #  char border
+
+#  used to exit the program by plugin  It works well if you start main.pyw as main
+def bye():
+    quit()
 
 
 while True:
@@ -82,7 +98,7 @@ while True:
     draw_need_borders()
 
 
-    chat.draw()
+    chat.draw(history.get_history())
     box.draw_bar()
     box.draw_clear_button()
 

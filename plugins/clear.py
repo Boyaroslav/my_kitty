@@ -6,7 +6,7 @@ Bobylev Yaroslav 2022
 github - https://github.com/Boyaroslav
 '''
 
-#  NOT WORKING 
+#  working, but (при очистке остается 1 сообщение, и при попытке выхода появляется системная информаия(pygame))
 
 need = ["clear", "очистить", "удали историю"]
 
@@ -36,12 +36,15 @@ for i in range(2):
     ind -= 1
 ind += 1
 
-print("очистка...")
+
 
 
 sys.path.append(p[:ind])
 
 for i in need:
     if get == i:
-        import chat_history
-        chat_history.clear_chat_history()
+        from window import *
+        print("очистка...")
+        window.clear_chat_history()
+        
+        quit()
