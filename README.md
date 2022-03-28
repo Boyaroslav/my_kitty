@@ -22,4 +22,4 @@
   <br/>
   <br/>
   
-![Image alt](https://github.com/Boyaroslav/my_kitty/raw/master/scr/kitty_screenshot.png)
+![Image alt](https://github.com/Boyaroslav/my_kitty/raw/master/etc/kitty_screenshot.png)
