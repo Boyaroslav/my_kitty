@@ -18,3 +18,8 @@
   <h4>to install -> pip install -r requirements.txt</h4>
   <br/>
   <h4>to start -> python3 main.pyw</h4>
+
+  <br/>
+  <br/>
+  
+![Image alt](https://github.com/Boyaroslav/my_kitty/raw/master/scr/kitty_screenshot.png)
