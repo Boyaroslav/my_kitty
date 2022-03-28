@@ -1,10 +1,12 @@
 import pygame
 import time
-from text_box import TextBox
+from text_box import TextBox, Lcd_clock
 from config import *
 from chat_render import Chat 
 from chat_history import History as hist
 from chat_parser import Parser
+
+from datetime import datetime
 
 
 
@@ -36,6 +38,16 @@ def clear_chat_history():
 
 main_chr = pygame.image.load(kitty_picture)
 main_chr = pygame.transform.scale(main_chr, kitty_image_size)  # rescaling to border size
+
+#  font
+
+font = pygame.font.Font(clock_font, 50)     #  for clock
+
+
+#  Lcd clock for time
+
+lcd_clock = Lcd_clock(font, clock_place, clock_colors, datetime, root)
+
 
 #  window icon
 
@@ -102,6 +114,8 @@ while True:
     box.draw_bar()
     box.draw_clear_button()
 
+    lcd_clock.draw()
+
 
     pygame.display.update()
-    clock.tick(60)
+    clock.tick(30)

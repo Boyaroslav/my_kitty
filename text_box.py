@@ -40,7 +40,8 @@ class TextBox:
         self.active = 0
     def add_let(self, input):
         self.text.append(input)
-        
+        if self.text == ["\r", "\r"]:
+            self.text = []        
         if input == "\r" and len(self.text) > 1:
             self.history.send_msg(''.join(self.text).replace('\r', ''))
             self.text = []
@@ -58,4 +59,20 @@ class TextBox:
         self.root.blit(arrow, (self.place[0] + self.place[2] + 10, self.place[1]))
     def clear(self):
         self.text = []
-    
+
+
+class Lcd_clock:
+    def __init__(self, font, place, color, date, root):
+        self.font = font
+        self.place = place
+        self.color = color
+        self.lcd_text = date
+        self.root = root
+        
+
+    def draw(self):
+        self.nw = self.lcd_text.now()
+        text = self.nw.strftime("%H:%M:%S")
+        pygame.draw.rect(self.root, self.color[1], self.place)
+        rend = self.font.render(text, False, self.color[0])
+        self.root.blit(rend, (self.place[0] + 60, self.place[1] + 5))

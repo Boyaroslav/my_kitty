@@ -14,12 +14,18 @@ plugins = os.listdir(path + "/plugins")
 plugins.remove('standart_output.py')
 
 
-BG = (50, 50, 50)
+BG = (17, 20, 24)
 
-BorderColor = (100, 50, 50)
+BorderColor = (60, 150, 60)
+
+clock_font = 'lcd.ttf'
+
+clock_place = (50, 500, 300, 60)
+
+clock_colors = [(45, 194, 126), (0, 0, 0)]             # (font color)(bg color)
 
 
-Chat_BG = (50, 50, 60)
+Chat_BG = (17, 20, 24)
 
 kitty_name_chatcolor = (255, 200, 200)
 
@@ -35,9 +41,9 @@ chat_rectangle_place = (500, 50, 600, 500)
 count_messages_visible = 15
 maxlen_message = 65
 
-chat_kitty_text = (255, 192, 203)
+chat_kitty_text = (0, 50, 50)
 
-button_color1 = (250, 100, 100)
+button_color1 = (0, 100, 100)
 
 kitty_picture = path + "/kitty.jpg"
 
@@ -52,7 +58,7 @@ chat_box_place = (chat_rectangle_place[0] + border_size, chat_rectangle_place[1]
 
 text_font = None
 
-box_color = (150, 100, 100)
+box_color = (200, 255, 200)
 
 
 removing_speed = 0.1

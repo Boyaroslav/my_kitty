@@ -23,3 +23,8 @@
   <br/>
   
 ![Image alt](https://github.com/Boyaroslav/my_kitty/raw/master/etc/kitty_screenshot.png)
+
+
+
+
+<h2>Font - LCD Light.   https://fonts-online.ru/fonts/lcd</h2>
