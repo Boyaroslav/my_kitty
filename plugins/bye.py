@@ -1,25 +1,20 @@
-from sys import argv
 from random import choice
 
 '''
 Bobyler Yaroslav 2022
 github - https://github.com/Boyaroslav
 '''
-
-#  это конечно кабздец костыль, надо фиксить
-
-answers = ["пока(", "прощай...", "пока", "удачи.", "bye-bye", "goodbye", "чао :("]
-
-need = ["пока", "мне пора", "goodbye", "bye", "exit", "quit"]
+def answer(msg):
 
 
-get = ''.join(argv)
+    #  это конечно кабздец костыль, надо фиксить
 
-get = get[get.index(".py") + 3:]
+    answers = ["пока(", "прощай...", "пока", "удачи.", "bye-bye", "goodbye", "чао :("]
+
+    need = ["пока", "мне пора", "goodbye", "bye", "exit", "quit"]
 
 
-for i in need:
-    if i in get.lower():
-        print(choice(answers))
-        print("kitty_exit")
-        quit()
+    for i in need:
+        if i in msg.lower():
+            print(choice(answers))
+            return quit()

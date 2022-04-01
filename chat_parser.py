@@ -1,5 +1,6 @@
-from config import path, plugins,kitty_name
+from config import path, plugins,kitty_name, slash
 import os
+import importlib
 
 '''
 Bobylev Yaroslav 2022
@@ -17,50 +18,52 @@ github - https://github.com/Boyaroslav
 
 class Parser:
     def __init__(self, history):
-        self.main_plugs = ['bawdry.py', 'echo.py', 'congratulations.py', 'help_me.py']
+        self.main_plugs = ['echo.py', 'congratulations.py', 'help_me.py']
         self.history = history
 
     def pop_last(self, msg):
         isd = 0
         # parsing main plugins firstly:
         for pl in self.main_plugs:
-            ans = os.popen(f'python3 {path}/plugins/{pl} "{msg[1]}"').read() 
-            if ans != "":
-                ans = ans.split("\\n")
+            pth = "plugins"
+            plugin = __import__(pth, fromlist=[ pl])
 
-                # deleting \n in the end
-                ans[-1] = ans[-1][:-1]
-                for i in ans:
-                    self.history.send_msg(i, user=kitty_name)
+            plugin = getattr(plugin, pl[:pl.index('.py')])
+
+            ans = plugin.answer(msg[1])
+
+            if ans != None:
                 isd = 1
-                break
-            else:
-                continue
-        if isd:
-            return None
+                self.history.send_msg(ans, user=kitty_name)
+            
+
         # parsing other plugins:
-        for pl in plugins:
-            ans = os.popen(f'python3 {path}/plugins/{pl} "{msg[1]}"').read()       
-            if ans != "":
-                ans = ans.split("\\n")
-
-                # deleting \n in the end
-                ans[-1] = ans[-1][:-1]
-                for i in ans:
-                    print(i)
-                    if "kitty_exit" in i:
-                        import window
-                        window.bye()
-                    self.history.send_msg(i, user=kitty_name)
-                isd = 1
-                break
-            else:
-                continue
-
-        # if kitty can't answer:
         if isd == 0:
-            ans = os.popen(f'python3 {path}/plugins/standart_output.py').read()
-            self.history.send_msg(ans[:-1], user=kitty_name)
+            for pl in list(set(plugins) - set(self.main_plugs)):
+                pth = "plugins"
+                plugin = __import__(pth, fromlist=[ pl])
+                print(pl)
+                print(plugin)
+
+                plugin = getattr(plugin, pl[:pl.index('.py')])
+                print(plugin)
+
+                ans = plugin.answer(msg[1])
+
+                if ans != None:
+                    isd = 1
+                    self.history.send_msg(ans, user=kitty_name)
+
+            # if kitty can't answer:
+            if isd == 0:
+                pth = "plugins"
+                plugin = __import__(pth, fromlist=[ 'standart_output'])
+
+                plugin = getattr(plugin, 'standart_output')
+
+                ans = plugin.answer(msg[1])
+
+                self.history.send_msg(ans, user=kitty_name)
 
         
 

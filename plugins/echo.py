@@ -1,4 +1,4 @@
-from sys import argv
+
 
 '''
 Bobylev Yaroslav 2022
@@ -7,17 +7,18 @@ analog of echo script
 
 
 
-get = ''.join(argv)
-get = get[get.index(".py") + 3:]
-g = get.split()
 
+def answer(msg):
+    g = msg.split()
 
-if "скажи" == g[0]:
-    print(' '.join(g[1:]))
-    quit()
-elif "say" == g[0]:
-    print(' '.join(g[1:]))
-    quit()
-elif "echo" == g[0]:
-    print(' '.join(g[1:]))
-    quit()
+    if "скажи" == g[0]:
+        return ' '.join(g[1:])
+
+    elif "say" == g[0]:
+        return ' '.join(g[1:])
+
+    elif "echo" == g[0]:
+        return ' '.join(g[1:])
+
+    else:
+        return None

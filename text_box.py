@@ -40,7 +40,7 @@ class TextBox:
         self.active = 0
     def add_let(self, input):
         self.text.append(input)
-        if self.text == ["\r", "\r"]:
+        if self.text == ["\r", "\r"] or self.text == ["\r"]:
             self.text = []        
         if input == "\r" and len(self.text) > 1:
             self.history.send_msg(''.join(self.text).replace('\r', ''))
@@ -55,7 +55,7 @@ class TextBox:
         return self.active
     def draw_clear_button(self):
         pygame.draw.rect(self.root, self.button_color1, (self.place[0] + self.place[2] + 10, self.place[1], self.place[3] // 2, self.place[3] // 2))
-        arrow = pygame.image.load(self.path + "/arrow.png")
+        arrow = pygame.image.load(self.path + "arrow.png")
         self.root.blit(arrow, (self.place[0] + self.place[2] + 10, self.place[1]))
     def clear(self):
         self.text = []

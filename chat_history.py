@@ -24,7 +24,9 @@ class History:
             self.pop_last(self.array[-1])
 
     def clear_chat_history(self):
-        self.array.clear()
+        print(self.array)
+        self.array[:]
+       
 
     def get_history(self):
         return self.array

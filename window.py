@@ -5,6 +5,8 @@ from config import *
 from chat_render import Chat 
 from chat_history import History as hist
 from chat_parser import Parser
+from notification import Notification
+
 
 from datetime import datetime
 
@@ -15,11 +17,13 @@ Bobylev Yaroslav 2022
 This script use pygame library to render the window
 '''
 
-pygame.init() 
+
+
 
 
 #  initialisation:
 
+pygame.init() 
 root = pygame.display.set_mode((1200, 700))
 pygame.display.set_caption("your kitty :)")
 clock = pygame.time.Clock()
@@ -28,10 +32,13 @@ history = hist()
 parser = Parser(history)
 history.pop_last = parser.pop_last
 
+#  font
 
+font = pygame.font.Font(path + clock_font, 50)     #  for clock
 
-def clear_chat_history():
-    history.clear_chat_history()
+# notification
+
+notify = Notification(root, clock_colors, font)
 
 
 #  importing files
@@ -39,9 +46,7 @@ def clear_chat_history():
 main_chr = pygame.image.load(kitty_picture)
 main_chr = pygame.transform.scale(main_chr, kitty_image_size)  # rescaling to border size
 
-#  font
 
-font = pygame.font.Font(clock_font, 50)     #  for clock
 
 
 #  Lcd clock for time
@@ -77,6 +82,10 @@ def draw_need_borders():
 #  used to exit the program by plugin  It works well if you start main.pyw as main
 def bye():
     quit()
+
+
+
+
 
 
 while True:

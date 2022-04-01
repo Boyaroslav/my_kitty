@@ -1,4 +1,4 @@
-from sys import argv
+
 from random import choice
 
 
@@ -6,16 +6,16 @@ from random import choice
 Bobylev Yaroslav 2022
 github - https://github.com/Boyaroslav
 '''
+def answer(arg):
+
+    need = ["хуй", "пизд", "хер", "дроч", "хуё", "хуе", "дерьмо", "гавно", "блять", "блядь"]
+    answers = ["фу...", "как некультурно!", "я обиделась.", "какая гадость!", "безобразие!"]
 
 
-need = ["хуй", "пизд", "хер", "дроч", "хуё", "хуе", "дерьмо", "гавно", "блять", "блядь"]
-answers = ["фу...", "как некультурно!", "я обиделась.", "какая гадость!", "безобразие!"]
 
-get = ''.join(argv)
-get = get[get.index(".py") + 3:]
+    for i in need:
+        if i in arg.lower():
+            return choice(answers)
+    
+    return None
 
-
-for i in need:
-    if i in get.lower():
-        print(choice(answers))
-        quit()

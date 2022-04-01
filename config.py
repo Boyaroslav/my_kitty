@@ -4,14 +4,27 @@ github - https://github.com/Boyaroslav
 '''
 
 
+
 import os
 
-path = os.path.dirname(__file__)
+# fix lash on windows
+
+slash = "/"
+
+if os.name == "nt":
+    slash = '\\'
+    
+
+
+path = os.path.dirname(__file__) + slash
 
 # all plugins in /plugins directory
-plugins = os.listdir(path + "/plugins")
+plugins = os.listdir(path + slash + "plugins")
+
 
 plugins.remove('standart_output.py')
+plugins.remove("__init__.py")
+plugins.remove("__pycache__")  # Better leave it here, okay?
 
 
 BG = (17, 20, 24)
