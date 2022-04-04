@@ -132,6 +132,7 @@ while True:
     lcd_clock.draw()
     if history:
         if history[len(history) - 1] == [kitty_name, "__clear__"]:
+            parser.clear_requested()
             clear_chat_history()
 
 

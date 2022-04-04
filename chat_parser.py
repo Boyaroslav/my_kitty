@@ -20,6 +20,7 @@ class Parser:
     def __init__(self, history):
         self.main_plugs = ['echo.py', 'congratulations.py', 'help_me.py', 'clear.py', 'bye.py']
         self.history = history
+        self.requested = []
 
     def pop_last(self, msg):
         isd = 0
@@ -47,6 +48,7 @@ class Parser:
                             else:
                                 self.history.send_msg(i[:len(i) % (maxlen_message + 1)], user=kitty_name)
                                 i = i[len(i) % (maxlen_message + 1):]
+               
 
                 else:
                     while ans:
@@ -57,6 +59,7 @@ class Parser:
                         else:
                             self.history.send_msg(ans[:len(ans) % (maxlen_message)], user=kitty_name)
                             ans = ans[maxlen_message:]
+                self.requested.append(plugin.__name__)
 
             
 
@@ -93,6 +96,7 @@ class Parser:
                             else:
                                 self.history.send_msg(ans[:len(ans) % (maxlen_message)], user=kitty_name)
                                 ans = ans[maxlen_message:]
+                    self.requested.append(plugin.__name__)
 
             # if kitty can't answer:
             if isd == 0:
@@ -104,6 +108,11 @@ class Parser:
                 ans = plugin.answer(msg[1])
 
                 self.history.send_msg(ans, user=kitty_name)
+                self.requested.append(plugin.__name__)
+        print(self.requested)
+
+    def clear_requested(self):
+        del self.requested[:]
         
 
 

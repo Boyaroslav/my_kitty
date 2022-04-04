@@ -11,7 +11,7 @@ github - https://github.com/Boyaroslav
 # DONT WORK
 
 def answer(msg):
-    need = ["clear", "очистить", "удали историю"]
+    need = ["clear", "очистить", "удали историю", "clean"]
 
     isd = 0
 
