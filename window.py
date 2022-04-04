@@ -127,7 +127,12 @@ while True:
     box.draw_bar()
     box.draw_clear_button()
 
+
+    #  я понимаю, что это жесткий костыль. Я не придумал пока решения лучше, потому fix needed
     lcd_clock.draw()
+    if history:
+        if history[len(history) - 1] == [kitty_name, "__clear__"]:
+            clear_chat_history()
 
 
 

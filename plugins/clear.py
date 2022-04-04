@@ -21,16 +21,10 @@ def answer(msg):
     if not isd:
         return None
             
-    slash = "/"
-    if os_name == "nt":
-        slash = "\\"
-
-    from ...my_kitty import window
-
 
     for i in need:
         if msg.lower() == i:
-            window.clear_chat_history()
+            return "__clear__"
 
             
     return None
