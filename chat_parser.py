@@ -1,6 +1,6 @@
-from config import path, plugins,kitty_name, slash
+from config import path, plugins,kitty_name, slash, maxlen_message
 import os
-import importlib
+
 
 '''
 Bobylev Yaroslav 2022
@@ -18,7 +18,7 @@ github - https://github.com/Boyaroslav
 
 class Parser:
     def __init__(self, history):
-        self.main_plugs = ['echo.py', 'congratulations.py', 'help_me.py']
+        self.main_plugs = ['echo.py', 'congratulations.py', 'help_me.py', 'clear.py', 'bye.py']
         self.history = history
 
     def pop_last(self, msg):
@@ -34,7 +34,30 @@ class Parser:
 
             if ans != None:
                 isd = 1
-                self.history.send_msg(ans, user=kitty_name)
+                print(121, ans, type(ans))
+                if type(ans) == type(self.pop_last):
+                    self.history.send_msg(ans, user=kitty_name)
+                elif type(ans) == list:
+                    for i in ans:
+                        while i:
+                            if len(i) <= maxlen_message:
+                                self.history.send_msg(i, user=kitty_name)
+                                ans = ''
+                                break
+                            else:
+                                self.history.send_msg(i[:len(i) % (maxlen_message + 1)], user=kitty_name)
+                                i = i[len(i) % (maxlen_message + 1):]
+
+                else:
+                    while ans:
+                        if len(ans) <= maxlen_message:
+                            self.history.send_msg(ans, user=kitty_name)
+                            ans = ''
+                            break
+                        else:
+                            self.history.send_msg(ans[:len(ans) % (maxlen_message)], user=kitty_name)
+                            ans = ans[maxlen_message:]
+
             
 
         # parsing other plugins:
@@ -42,17 +65,34 @@ class Parser:
             for pl in list(set(plugins) - set(self.main_plugs)):
                 pth = "plugins"
                 plugin = __import__(pth, fromlist=[ pl])
-                print(pl)
-                print(plugin)
+
 
                 plugin = getattr(plugin, pl[:pl.index('.py')])
-                print(plugin)
-
+    
                 ans = plugin.answer(msg[1])
 
                 if ans != None:
                     isd = 1
-                    self.history.send_msg(ans, user=kitty_name)
+                    if type(ans) == list:
+                        for i in ans:
+                            while i:
+                                if len(i) <= maxlen_message:
+                                    self.history.send_msg(i, user=kitty_name)
+                                    ans = ''
+                                    break
+                                else:
+                                    self.history.send_msg(i[:len(i) % (maxlen_message + 1)], user=kitty_name)
+                                    i = i[len(i) % (maxlen_message + 1):]
+
+                    else:
+                        while ans:
+                            if len(ans) <= maxlen_message:
+                                self.history.send_msg(ans, user=kitty_name)
+                                ans = ''
+                                break
+                            else:
+                                self.history.send_msg(ans[:len(ans) % (maxlen_message)], user=kitty_name)
+                                ans = ans[maxlen_message:]
 
             # if kitty can't answer:
             if isd == 0:
@@ -64,7 +104,6 @@ class Parser:
                 ans = plugin.answer(msg[1])
 
                 self.history.send_msg(ans, user=kitty_name)
-
         
 
 

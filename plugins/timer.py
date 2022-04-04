@@ -2,11 +2,14 @@ import time
 from os import name as os_name
 
 
+
+
 def answer(msg):
+    msg = msg.split()
     if msg[0] not in ["timer", "таймер"]:
         return None
 
-    return "Таймер поставлен!"
+
 
     count = int(msg[1])
 
@@ -31,26 +34,14 @@ def answer(msg):
 
     #time.sleep(count * un)
 
-    import sys 
-
-
-    p = str(__file__)
-
-    ind = -1
-
-    for i in range(2):
-        while (p[ind] != slash):
-            ind -= 1
-        ind -= 1
-    ind += 1
 
 
 
-
-    sys.path.append(p[:ind])
-
-
-    from window import notify
-    from config import kitty_name
-    window.notify.draw_not("Таймер на", count, un, "звонит!", kitty_name)
+    from .. import config
+    sleep_time = unit[units] * count
+    with timer_tick(sleep_time):
+        print("timer hui")
+        return window.notify.draw_not("Таймер на", count, un, "звонит!", config.kitty_name)
+        return "Таймер поставлен"
+    
 

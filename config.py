@@ -24,7 +24,8 @@ plugins = os.listdir(path + slash + "plugins")
 
 plugins.remove('standart_output.py')
 plugins.remove("__init__.py")
-plugins.remove("__pycache__")  # Better leave it here, okay?
+if "__pycache__" in plugins:
+    plugins.remove("__pycache__")  # Better leave it here, okay?
 
 
 BG = (17, 20, 24)

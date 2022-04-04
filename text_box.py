@@ -43,7 +43,7 @@ class TextBox:
         if self.text == ["\r", "\r"] or self.text == ["\r"]:
             self.text = []        
         if input == "\r" and len(self.text) > 1:
-            self.history.send_msg(''.join(self.text).replace('\r', ''))
+            self.history.send_msg(''.join(self.text).replace('\r', '').lstrip())
             self.text = []
 
 

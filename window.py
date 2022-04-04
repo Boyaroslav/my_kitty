@@ -84,6 +84,10 @@ def bye():
     quit()
 
 
+def clear_chat_history():
+    history.array.clear()
+
+
 
 
 
@@ -124,6 +128,7 @@ while True:
     box.draw_clear_button()
 
     lcd_clock.draw()
+
 
 
     pygame.display.update()

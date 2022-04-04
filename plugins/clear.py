@@ -7,6 +7,9 @@ github - https://github.com/Boyaroslav
 '''
 
 
+
+# DONT WORK
+
 def answer(msg):
     need = ["clear", "очистить", "удали историю"]
 
@@ -22,26 +25,13 @@ def answer(msg):
     if os_name == "nt":
         slash = "\\"
 
-    import sys 
+    from ...my_kitty import window
 
-    p = str(__file__)
-
-    ind = -1
-
-    for i in range(2):
-        while (p[ind] != slash):
-            ind -= 1
-        ind -= 1
-    ind += 1
-
-
-
-
-    sys.path.append(p[:ind])
 
     for i in need:
         if msg.lower() == i:
-            return "очистка..."
-            return window.history.clear_chat_history
+            window.clear_chat_history()
+
+            
     return None
             
