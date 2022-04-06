@@ -21,6 +21,8 @@ class TextBox:
         self.maxlen_message = maxlen_message
         self.button_color1 = button_color1
         self.path = path
+        self.text_history = ['']
+        self.index = 0
     def draw_bar(self):
         pygame.draw.rect(self.root, self.color1, self.place)
         if len(self.text) < self.maxlen_message:
@@ -40,16 +42,34 @@ class TextBox:
         self.active = 0
     def add_let(self, input):
         self.text.append(input)
+        self.text_history[0] = self.text
         if self.text == ["\r", "\r"] or self.text == ["\r"]:
             self.text = []        
         if input == "\r" and len(self.text) > 1:
-            self.history.send_msg(''.join(self.text).replace('\r', '').lstrip())
+            self.history.send_msg(''.join(self.text[:-1]).replace('\r', '').lstrip())
+            self.index = 0
+            self.text_history[0] = ""
+            self.text_history = [self.text_history[0]]+ [''.join(self.text[:-1])] + self.text_history[1:]
             self.text = []
 
 
     def del_let(self):
         if len(self.text) != 0:
             del self.text[-1]
+
+    def set_history(self, but):
+        if but == pygame.K_UP:
+            self.index += 1
+            if self.index >= len(self.text_history) :
+                self.index -= 1
+            self.text = list(self.text_history[self.index])
+
+
+        elif but == pygame.K_DOWN:
+            self.index -= 1
+            if self.index < 0:
+                self.index = 0
+            self.text = list(self.text_history[self.index])
 
     def isactive(self):
         return self.active

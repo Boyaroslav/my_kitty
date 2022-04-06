@@ -35,7 +35,7 @@ class Parser:
 
             if ans != None:
                 isd = 1
-                print(121, ans, type(ans))
+
                 if type(ans) == type(self.pop_last):
                     self.history.send_msg(ans, user=kitty_name)
                 elif type(ans) == list:
@@ -109,7 +109,7 @@ class Parser:
 
                 self.history.send_msg(ans, user=kitty_name)
                 self.requested.append(plugin.__name__)
-        print(self.requested)
+
 
     def clear_requested(self):
         del self.requested[:]

@@ -109,6 +109,9 @@ while True:
             v = str(i)
             if i.key == pygame.K_BACKSPACE:
                 is_backspace = 1
+
+            elif i.key == pygame.K_UP or i.key == pygame.K_DOWN:
+                box.set_history(i.key)
             else:
                 #box.add_let(v[v.index(':') + 3:v.index(',') - 1])
                 box.add_let(i.unicode)
