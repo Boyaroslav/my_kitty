@@ -27,7 +27,7 @@ pygame.init()
 root = pygame.display.set_mode((1200, 700))
 pygame.display.set_caption("your kitty :)")
 clock = pygame.time.Clock()
-main_font = pygame.font.Font(text_font, 25)
+main_font = pygame.font.SysFont(text_font, text_font_size)
 history = hist()
 parser = Parser(history)
 history.pop_last = parser.pop_last
@@ -103,8 +103,12 @@ while True:
                     box.active
                 elif (x >= text_box_place[0] + text_box_place[2] +10 and x <= text_box_place[0] + text_box_place[2] +10 + (text_box_place[3] // 2) and y >= text_box_place[1] and y <= text_box_place[1] + (text_box_place[3] // 2)):
                     box.clear()
+                elif (x >= text_box_place[0] - 50 and x <= text_box_place[0] and y >= text_box_place[1] and y  <= text_box_place[1] + 45):
+                    box.set_history(pygame.K_UP)
+                elif (x >= text_box_place[0] - 50 and x <= text_box_place[0] and y >= text_box_place[1] + 55 and y  <= text_box_place[1] + 100):
+                    box.set_history(pygame.K_DOWN)
                 else:
-                    box.disactive
+                    box.disactive()
         if i.type == pygame.KEYDOWN and box.isactive:
             v = str(i)
             if i.key == pygame.K_BACKSPACE:
@@ -129,6 +133,7 @@ while True:
     chat.draw(history.get_history())
     box.draw_bar()
     box.draw_clear_button()
+    box.draw_go_up_down_button()
 
 
     #  я понимаю, что это жесткий костыль. Я не придумал пока решения лучше, потому fix needed

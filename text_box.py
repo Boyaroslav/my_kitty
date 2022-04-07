@@ -23,6 +23,13 @@ class TextBox:
         self.path = path
         self.text_history = ['']
         self.index = 0
+
+
+        self.arrow = pygame.image.load(self.path + "arrow.png")
+
+        self.ar_up = pygame.image.load(self.path + "arrow_up.png")
+
+        self.ar_down = pygame.image.load(self.path + "arrow_down.png")
     def draw_bar(self):
         pygame.draw.rect(self.root, self.color1, self.place)
         if len(self.text) < self.maxlen_message:
@@ -73,10 +80,19 @@ class TextBox:
 
     def isactive(self):
         return self.active
+
     def draw_clear_button(self):
         pygame.draw.rect(self.root, self.button_color1, (self.place[0] + self.place[2] + 10, self.place[1], self.place[3] // 2, self.place[3] // 2))
-        arrow = pygame.image.load(self.path + "arrow.png")
-        self.root.blit(arrow, (self.place[0] + self.place[2] + 10, self.place[1]))
+        self.root.blit(self.arrow, (self.place[0] + self.place[2] + 10, self.place[1]))
+
+    def draw_go_up_down_button(self):
+        pygame.draw.rect(self.root, self.button_color1,  (self.place[0] - 50, self.place[1], 45, 45))
+
+        pygame.draw.rect(self.root, self.button_color1,  (self.place[0] - 50, self.place[1] + 55, 45, 45))
+
+        self.root.blit(self.ar_up, (self.place[0] - 50, self.place[1]))
+
+        self.root.blit(self.ar_down, (self.place[0] - 50, self.place[1] + 55))
     def clear(self):
         self.text = []
 

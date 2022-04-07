@@ -53,7 +53,7 @@ kitty_name = "Kitty"
 chat_rectangle_place = (500, 50, 600, 500)
 
 count_messages_visible = 15
-maxlen_message = 65
+maxlen_message = 100
 
 chat_kitty_text = (0, 50, 50)
 
@@ -70,7 +70,12 @@ text_box_place = (500, 550, 600, 100)
 chat_box_place = (chat_rectangle_place[0] + border_size, chat_rectangle_place[1] + border_size, 600 - (border_size * 2), 500 - (border_size * 2))
 
 
-text_font = None
+text_font_size = 15
+#  choose one if you want
+text_font = 'URW Gothic'
+#  text_font = None
+#  text_font = "Noto Sans"
+#  text_font = "Hack"
 
 box_color = (200, 255, 200)
 

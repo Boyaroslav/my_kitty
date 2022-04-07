@@ -35,7 +35,9 @@ class Chat:
                     lenmes = len(mess)
                 else:
                     lenmes = len(mess) - config.maxlen_message
+                #  WARNING!!! iF YOU WROTE YOUR OWN PLUGIN, BE SURE WHAT OUTPUT LENGTH LOWER THAN maxlen_message 
                 text = self.font.render(str(mess[:lenmes ]), True, config.chat_color)
+
                 self.root.blit(text, ((self.place[0] + 55, messy)))
 
 

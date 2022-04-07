@@ -59,7 +59,8 @@ class Parser:
                         else:
                             self.history.send_msg(ans[:len(ans) % (maxlen_message)], user=kitty_name)
                             ans = ans[maxlen_message:]
-                self.requested.append(plugin.__name__)
+                break
+
 
             
 
@@ -87,6 +88,7 @@ class Parser:
                                     self.history.send_msg(i[:len(i) % (maxlen_message + 1)], user=kitty_name)
                                     i = i[len(i) % (maxlen_message + 1):]
 
+
                     else:
                         while ans:
                             if len(ans) <= maxlen_message:
@@ -96,7 +98,7 @@ class Parser:
                             else:
                                 self.history.send_msg(ans[:len(ans) % (maxlen_message)], user=kitty_name)
                                 ans = ans[maxlen_message:]
-                    self.requested.append(plugin.__name__)
+                    break
 
             # if kitty can't answer:
             if isd == 0:
@@ -105,10 +107,12 @@ class Parser:
 
                 plugin = getattr(plugin, 'standart_output')
 
-                ans = plugin.answer(msg[1])
+                ans = plugin.answer(msg[1], self.requested)
 
                 self.history.send_msg(ans, user=kitty_name)
-                self.requested.append(plugin.__name__)
+        self.requested.append(plugin.__name__)
+        print(self.requested)
+
 
 
     def clear_requested(self):

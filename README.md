@@ -13,6 +13,9 @@
  <br />
   <h3>Boyaroslav - maintainer/He uses arch btw</h3>
   <h3>Cursedriver - i dont know</h3>
+  <h3>Gleb - custom plugins maker(and good guy)</h3>
+  <br/>
+  <h4>Custom plugs : https://github.com/bulochkasyablokom</h4>
   
   
   <h4>to install -> pip install -r requirements.txt</h4>
@@ -35,3 +38,11 @@
 <h5>    - очистку чата через clear.py</h5>
 <br/>
 <h5>    - реализация смены тем через плагины</h5>
+
+</h5>if the text is not displayed well, uncomment the new font in config.py (or put your own)</h5>
+<br/>
+<h5>font - config.text_font</h5>
+<br/>
+<h5>font size - config.text_font_size</h5>
+<br/>
+<h5>Если вы охреневаете с того, какая тут солянка языков, то знайте что я тоже диву даюсь.</h5>
