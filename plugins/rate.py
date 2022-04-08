@@ -1,4 +1,3 @@
-from sys import argv
 import requests
 from bs4 import BeautifulSoup
 
@@ -8,6 +7,8 @@ github - https://github.com/Boyaroslav
 need beautifulsoup4 module
 '''
 
+
+
 def parse_rate(main, your):
     USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.81 Safari/537.36"
 
@@ -15,6 +16,12 @@ def parse_rate(main, your):
     sess = requests.session()
     sess.headers['USER-AGENT'] = USER_AGENT
     sess.headers['LANGUAGE'] = LANGUAGE
+
+    stupid_string = "not found"
+
+    stupid_string_2 = "not found"
+
+    money = "not found"
     try:
         get =  sess.get(f"https://www.google.com/search?q=курс+{main}+к{your}").content
 
@@ -27,9 +34,7 @@ def parse_rate(main, your):
         money = soup.find("span",  attrs={'class':'DFlfde SwHCTb'}).text
 
     except:
-        stupid_string = "error"
-        stupid_string_2 = "error"
-        money = "error"
+        pass
 
     return f"1 {stupid_string} = {money} {stupid_string_2}"
 

@@ -10,7 +10,7 @@ github - https://github.com/Boyaroslav
 '''
 
 def answer(msg, history):
-    if len(history) != 0:
+    if len(history) > 2:
         if history.count('plugins.weather') > len(history) // 2:
             return "Извини, мой любимый метеоролог, не поняла тебя ^-^"
 
