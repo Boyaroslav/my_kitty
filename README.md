@@ -31,13 +31,19 @@
 
 
 <h2>Font - LCD Light.   https://fonts-online.ru/fonts/lcd</h2>
+<h3>Как написать свою тему:</h3>
+<h4>вы должны создать в директории themes текстовый файл в котором(построчно начиная с нуля) находятся переменные конфига:</h4>
+<h5>    # 1 - BG
+    # 2 - BorderColor
+    # 3 - Chat_BG
+    # 4 - kitty_name_chatcolor
+    # 5 - chat_kitty_text
+    # 6 - button_color1
+    # 7 - box_color
+    # 8 - kitty_name
+</h5>
 
-
-<h4>В ближайшем будущем планируется реализовать</h4>
-<br/>
-<h5>    - очистку чата через clear.py</h5>
-<br/>
-<h5>    - реализация смены тем через плагины</h5>
+ 
 
 </h5>if the text is not displayed well, uncomment the new font in config.py (or put your own)</h5>
 <br/>
