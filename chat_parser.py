@@ -1,6 +1,6 @@
 from config import path, plugins,kitty_name, slash, maxlen_message
 import os
-
+import sys
 
 '''
 Bobylev Yaroslav 2022
