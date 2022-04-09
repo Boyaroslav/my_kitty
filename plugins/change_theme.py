@@ -31,7 +31,9 @@ def change_config(msg):
     # 5 - chat_kitty_text
     # 6 - button_color1
     # 7 - box_color
-    # 8 - kitty_name
+    # 8 - clock_colors
+    # 9 - chat_color
+    # 10 - kitty_name
     keys = {
             "BG":0,
             "BorderColor":1,
