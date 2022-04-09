@@ -40,9 +40,10 @@
   <h5>    # 5 - chat_kitty_text</h5>
   <h5>    # 6 - button_color1</h5>
   <h5>    # 7 - box_color</h5>
-  <h5>    # 8 - kitty_name</h5>
-
-
+  <h5>    # 8 - clock_colors</h5>
+  <h5>    # 9 - chat_color</h5>
+  <h5>    # 10 - kitty_name</h5>
+  
  
 
 </h5>if the text is not displayed well, uncomment the new font in config.py (or put your own)</h5>
