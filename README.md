@@ -33,15 +33,15 @@
 <h2>Font - LCD Light.   https://fonts-online.ru/fonts/lcd</h2>
 <h3>Как написать свою тему:</h3>
 <h4>вы должны создать в директории themes текстовый файл в котором(построчно начиная с нуля) находятся переменные конфига:</h4>
-<h5>    # 1 - BG
-    # 2 - BorderColor
-    # 3 - Chat_BG
-    # 4 - kitty_name_chatcolor
-    # 5 - chat_kitty_text
-    # 6 - button_color1
-    # 7 - box_color
-    # 8 - kitty_name
-</h5>
+  <h5>    # 1 - BG </h5>
+  <h5>    # 2 - BorderColor</h5>
+  <h5>    # 3 - Chat_BG</h5>
+  <h5>    # 4 - kitty_name_chatcolor</h5>
+  <h5>    # 5 - chat_kitty_text</h5>
+  <h5>    # 6 - button_color1</h5>
+  <h5>    # 7 - box_color</h5>
+  <h5>    # 8 - kitty_name</h5>
+
 
  
 
