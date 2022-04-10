@@ -15,6 +15,8 @@ def change_config(msg):
     conf_path = path + "config.py"
     config = open(conf_path, "r+")
     config_data = config.readlines()
+    config.close()
+    config = open(conf_path, "w")
 
     #  opening theme in theme directory
     print(path + "/themes/" + ' '.join(msg))
