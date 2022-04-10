@@ -69,7 +69,7 @@ is_backspace = 0
 
 # box with chat
 
-chat = Chat(root, chat_box_place, Chat_BG, chat_kitty_text, main_font)
+chat = Chat(root, chat_box_place, Chat_BG, main_font)
 
 
 def draw_need_borders():
