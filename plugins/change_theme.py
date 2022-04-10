@@ -51,9 +51,10 @@ def change_config(msg):
 
     for i in range(0, len(config_data)):
         for j in keys:
-            if j in config_data[i]:
+            if j == config_data[i]:
                 config_data[i] = str(j + " = " + theme_data[keys[j]])
 		del keys[j]
+		break
 
     config.writelines(config_data)
 
