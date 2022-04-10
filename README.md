@@ -12,7 +12,7 @@
          width=30" height="30">
  <br />
   <h3>Boyaroslav - maintainer/He uses arch btw</h3>
-  <h3>Cursedriver - i dont know</h3>
+  <h3>Cursedriver - Themes maker</h3>
   <h3>Gleb - custom plugins maker(and good guy)</h3>
   <br/>
   <h4>Custom plugs : https://github.com/bulochkasyablokom</h4>
