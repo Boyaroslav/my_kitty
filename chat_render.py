@@ -10,11 +10,10 @@ github - https://github.com/Boyaroslav
 '''
 
 class Chat:
-    def __init__(self, root, place, BGcolor, color, font):
+    def __init__(self, root, place, BGcolor, font):
         self.root = root
         self.place = place
         self.BGcolor = BGcolor
-        self.color = color
         self.font = font
         #self.history = history
     def draw(self, history):
