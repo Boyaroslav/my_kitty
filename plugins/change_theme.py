@@ -53,7 +53,8 @@ def change_config(msg):
         for j in keys:
             if j in config_data[i]:
                 config_data[i] = str(j + " = " + theme_data[keys[j]])
-                print(config_data[i])
+		del keys[j]
+
     config.writelines(config_data)
 
     theme.close()    
