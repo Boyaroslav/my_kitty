@@ -6,7 +6,7 @@ github - https://github.com/bulochkasyablokom
 '''
 
 
-def answer(msg):
+def answer(msg, *args):
     coin = choice(["орел", "решка"])
 
     need = ["подбрось монетку", "орел или решка", "монетка", "орёл или решка"]

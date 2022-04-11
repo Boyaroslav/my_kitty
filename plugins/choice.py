@@ -1,6 +1,6 @@
 from random import choice
 
-def answer(msg):
+def answer(msg, *args):
     ors = ["or", "или"]
     msg = msg.rstrip("?")
     msg = msg.split()

@@ -4,7 +4,7 @@ from os import name as os_name
 
 
 
-def answer(msg):
+def answer(msg, *args):
     msg = msg.split()
     if msg[0] not in ["timer", "таймер"]:
         return None

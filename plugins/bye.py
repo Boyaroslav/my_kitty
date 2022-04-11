@@ -4,7 +4,7 @@ from random import choice
 Bobyler Yaroslav 2022
 github - https://github.com/Boyaroslav
 '''
-def answer(msg):
+def answer(msg, *args):
 
 
     #  это конечно кабздец костыль, надо фиксить

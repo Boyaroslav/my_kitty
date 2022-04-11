@@ -8,7 +8,7 @@ analog of echo script
 
 
 
-def answer(msg):
+def answer(msg, *args):
     g = msg.split()
 
     if "скажи" == g[0]:

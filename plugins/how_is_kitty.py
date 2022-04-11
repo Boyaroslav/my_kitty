@@ -1,12 +1,11 @@
 
-from sys import argv
 from random import choice
 
 '''
 Bobylev Yaroslav 2022
 github - https://github.com/Boyaroslav
 '''
-def answer(msg):
+def answer(msg, *args):
 
     answers = ["хорошо", "fine", "нормально", "у меня все хорошо ;3", "отлично! Спасибо, что интересуешься"]
 

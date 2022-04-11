@@ -3,7 +3,8 @@ def rbt(x):
     import os
     ans = str("python3 " + x + "main.pyw")
     os.system(ans)
-def answer(msg):
+    
+def answer(msg, *args):
     if msg in ["reboot", "restart", "перезапуск", "перезапустить", "перезагрузка"]:
         import sys
         import threading

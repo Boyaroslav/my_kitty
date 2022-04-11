@@ -1,4 +1,3 @@
-from sys import argv
 import requests
 from bs4 import BeautifulSoup
 
@@ -33,7 +32,7 @@ def parse_weather(country, city):
 
     return str("сейчас в " + city + " " + s_f + " градусов")
 
-def answer(msg):
+def answer(msg, *args):
 
     need = ["погода", "какая сейчас погода", "what is the weather"]
 

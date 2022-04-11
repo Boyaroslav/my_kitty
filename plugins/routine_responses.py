@@ -5,7 +5,7 @@ Bobylev Yaroslav 2022
 github - https://github.com/Boyaroslav
 '''
 
-def answer(msg):
+def answer(msg, *args):
 
 
     what_are_you_doing = ["что делаешь?", "что делаешь", "what are you doing", "what are you doing?"]

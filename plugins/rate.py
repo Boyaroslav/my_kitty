@@ -38,7 +38,7 @@ def parse_rate(main, your):
 
     return f"1 {stupid_string} = {money} {stupid_string_2}"
 
-def answer(msg):
+def answer(msg, *args):
     msg = msg.split()
 
     need = ['курс', 'rate']

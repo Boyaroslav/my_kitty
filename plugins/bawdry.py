@@ -6,7 +6,7 @@ from random import choice
 Bobylev Yaroslav 2022
 github - https://github.com/Boyaroslav
 '''
-def answer(arg):
+def answer(arg, *args):
 
     need = ["хуй", "пизд", "хер", "дроч", "хуё", "хуе", "дерьмо", "гавно", "блять", "блядь"]
     answers = ["фу...", "как некультурно!", "я обиделась.", "какая гадость!", "безобразие!"]

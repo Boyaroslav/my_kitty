@@ -3,7 +3,7 @@
 Bobylev Yaroslav 2022
 github - https://github.com/Boyaroslav
 '''
-def answer(msg):
+def answer(msg, *args):
     from random import choice
 
     answers = ["Рада тебя видеть!", "Здравствуй...", "Я по вам соскучилась", "Привет"]

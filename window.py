@@ -19,12 +19,12 @@ This script use pygame library to render the window
 
 
 
-
+window_size = (1200, 700)
 
 #  initialisation:
 
 pygame.init() 
-root = pygame.display.set_mode((1200, 700))
+root = pygame.display.set_mode(window_size)
 pygame.display.set_caption("your kitty :)")
 clock = pygame.time.Clock()
 main_font = pygame.font.SysFont(text_font, text_font_size)
@@ -87,6 +87,14 @@ def bye():
 def clear_chat_history():
     history.array.clear()
 
+if type(BG) == type((1, 2, 3)):
+    bg_fill = root.fill(BG)
+
+elif type(BG) == type("Mr Kostil"):
+    BG_IM = pygame.image.load(BG)
+    BG_IM = pygame.transform.scale(BG_IM, window_size)
+    bg_fill = root.blit(BG_IM, (0, 0))
+
 
 
 
@@ -126,7 +134,7 @@ while True:
         time.sleep(removing_speed)
 
     
-    root.fill(BG)
+    bg_fill
     draw_need_borders()
 
 

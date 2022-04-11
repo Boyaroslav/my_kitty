@@ -9,7 +9,7 @@ Bobylev Yaroslav 2022
 github - https://github.com/Boyaroslav
 '''
 
-def answer(msg, history):
+def answer(msg, history, *args):
     if len(history) > 2:
         if history.count('plugins.weather') > len(history) // 2:
             return "Извини, мой любимый метеоролог, не поняла тебя ^-^"

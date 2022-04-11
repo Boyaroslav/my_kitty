@@ -36,6 +36,7 @@ def change_config(msg):
     # 8 - clock_colors
     # 9 - chat_color
     # 10 - kitty_name
+    # 11 - kitty_picture 
     keys = {
             "BG":0,
             "BorderColor":1,
@@ -46,15 +47,18 @@ def change_config(msg):
             "box_color":6,
 	    "clock_colors":7,
             "chat_color":8,
-            "kitty_name":9
+            "kitty_name":9,
+            "kitty_picture":10
             }
 
     for i in range(0, len(config_data)):
-        for j in keys:
-            if j == config_data[i]:
-                config_data[i] = str(j + " = " + theme_data[keys[j]])
-		del keys[j]
-		break
+        if "=" in config_data[i]:
+            for j in keys:
+                if j == config_data[i][:config_data[i].index('=')].strip():
+                    config_data[i] = str(j + " = " + theme_data[keys[j]])
+                    print(keys[j])
+
+                    continue
 
     config.writelines(config_data)
 
@@ -63,7 +67,7 @@ def change_config(msg):
     return "конфиг изменен! Перезапустите меня :("
 
 
-def answer(msg):
+def answer(msg, *args):
     msg = msg.split()
     if ' '.join(msg[:2]) in ["установи тему", "set theme"]:
         x = change_config(msg[2:])

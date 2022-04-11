@@ -43,6 +43,7 @@
   <h5>    # 8 - clock_colors - [(цвет шрифта часов), (цвет фона часов)]</h5>
   <h5>    # 9 - chat_color - цвет сообщений в чате (не ник)</h5>
   <h5>    # 10 - kitty_name</h5>
+  <h5>    # 11 - kitty_picture - путь к иконке персонажа</h5>
   
  
 
@@ -53,3 +54,4 @@
 <h5>font size - config.text_font_size</h5>
 <br/>
 <h5>Если вы охреневаете с того, какая тут солянка языков, то знайте что я тоже диву даюсь.</h5>
+<h6>supercell, excuse me for spike_theme.txt. I love your products very much</h6>
