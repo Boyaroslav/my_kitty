@@ -56,8 +56,8 @@ def change_config(msg):
             for j in keys:
                 if j == config_data[i][:config_data[i].index('=')].strip():
                     config_data[i] = str(j + " = " + theme_data[keys[j]])
-                    print(keys[j])
-
+                    if config_data[i][-1] != "\n":
+                        config_data[i] = config_data[i] + "\n"
                     continue
 
     config.writelines(config_data)

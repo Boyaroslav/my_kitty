@@ -111,7 +111,7 @@ class Parser:
 
                 self.history.send_msg(ans, user=kitty_name)
         self.requested.append(plugin.__name__)
-        print(self.requested)
+
 
 
 
