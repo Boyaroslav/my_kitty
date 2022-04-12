@@ -5,7 +5,7 @@ from config import *
 from chat_render import Chat 
 from chat_history import History as hist
 from chat_parser import Parser
-from notification import Notification
+
 
 
 from datetime import datetime
@@ -36,9 +36,6 @@ history.pop_last = parser.pop_last
 
 font = pygame.font.Font(path + clock_font, 50)     #  for clock
 
-# notification
-
-notify = Notification(root, clock_colors, font)
 
 
 #  importing files

@@ -81,3 +81,6 @@ box_color = (200, 255, 200)
 
 
 removing_speed = 0.1
+
+
+notify_size = (400, 150)
