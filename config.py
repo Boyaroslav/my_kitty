@@ -28,22 +28,22 @@ if "__pycache__" in plugins:
     plugins.remove("__pycache__")  # Better leave it here, okay?
 
 
-BG = (17, 20, 24)
+BG = path + "etc/wp9.jpg"
 
-BorderColor = (60, 150, 60)
+BorderColor = (227, 191, 158)
 
 clock_font = 'lcd.ttf'
 
 clock_place = (50, 500, 300, 60)
 
-clock_colors = [(45, 194, 126), (0, 0, 0)] 
+clock_colors = [(236, 200, 165), (109, 22, 25)]
 
 
-Chat_BG = (17, 20, 24)
+Chat_BG = (52, 51, 50)
 
-kitty_name_chatcolor = (255, 200, 200)
+kitty_name_chatcolor = (119, 118, 22)
 
-chat_color = (255, 255, 255)
+chat_color = (163, 156, 163)
 
 kittty_rectangle_place = (50, 50,300, 400)
 
@@ -55,9 +55,9 @@ chat_rectangle_place = (500, 50, 600, 500)
 count_messages_visible = 15
 maxlen_message = 100
 
-chat_kitty_text = (0, 50, 50)
+chat_kitty_text = (71, 78, 87)
 
-button_color1 = (0, 100, 100)
+button_color1 = (67, 93, 110)
 
 kitty_picture = path + "kitty.jpg"
 
@@ -77,7 +77,7 @@ text_font = 'URW Gothic'
 #  text_font = "Noto Sans"
 #  text_font = "Hack"
 
-box_color = (200, 255, 200)
+box_color = (176, 158, 105)
 
 
 removing_speed = 0.1
