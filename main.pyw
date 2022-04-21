@@ -8,7 +8,6 @@ You can write your own plugin. If I like it, I'll add it to the test branch
 # font - config.text_font
 #font size - config.text_font_size
 
-
 if __name__ == "__main__":
     import window
 

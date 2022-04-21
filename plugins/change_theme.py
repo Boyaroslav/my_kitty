@@ -70,5 +70,10 @@ def change_config(msg):
 def answer(msg, *args):
     msg = msg.split()
     if ' '.join(msg[:2]) in ["установи тему", "set theme"]:
+        
+        if len(msg) == 2:
+            from . import my_plugs_themes
+            return my_plugs_themes.answer("плагины")
+
         x = change_config(msg[2:])
         return x

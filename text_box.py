@@ -23,6 +23,8 @@ class TextBox:
         self.path = path
         self.text_history = ['']
         self.index = 0
+        self.pointer = 0
+
 
 
         self.arrow = pygame.image.load(self.path + "arrow.png")
@@ -30,25 +32,31 @@ class TextBox:
         self.ar_up = pygame.image.load(self.path + "arrow_up.png")
 
         self.ar_down = pygame.image.load(self.path + "arrow_down.png")
+
     def draw_bar(self):
+        # рисует окошко и курсор
         pygame.draw.rect(self.root, self.color1, self.place)
         if len(self.text) < self.maxlen_message:
             leng = 0
         else:
             leng = len(self.text) - self.maxlen_message
-        if self.active:
-            #  dont work
-            pygame.draw.rect(self.root, (0,0,0), (self.place[0] + (len(self.text[leng:]) * 25), self.place[1], 20, self.place[3]))
+
         text2 = self.font.render(''.join(self.text[leng:]), True, self.BGcolor)
         self.root.blit(text2, self.place[:2])
+        wid, hei = self.font.size(''.join(self.text[:self.pointer]))
+        pygame.draw.rect(self.root, self.button_color1,  (self.place[0] + wid, self.place[1], 2, hei))
+
     def active(self):
         self.color1 = (250, 200, 200)
         self.active = 1
+
     def disactive(self):
         self.color1=self. color
         self.active = 0
+
     def add_let(self, input):
-        self.text.append(input)
+        # добавляет юникодный(и не очень) символ
+        self.text = self.text[:self.pointer] + [input] + self.text[self.pointer:]
         self.text_history[0] = self.text
         if self.text == ["\r", "\r"] or self.text == ["\r"]:
             self.text = []        
@@ -58,18 +66,24 @@ class TextBox:
             self.text_history[0] = ""
             self.text_history = [self.text_history[0]]+ [''.join(self.text[:-1])] + self.text_history[1:]
             self.text = []
+        self.pointer += 1
 
 
     def del_let(self):
-        if len(self.text) != 0:
-            del self.text[-1]
+        if len(self.text) != 0 and self.pointer <= len(self.text):
+            self.pointer -= 1
+            del self.text[self.pointer]
+        if self.pointer > len(self.text):
+            self.pointer = len(self.text)
 
     def set_history(self, but):
+        # but содержит в себе событие клавиши вниз / вверх. Меняет self.text на предыдущие сообщения
         if but == pygame.K_UP:
             self.index += 1
             if self.index >= len(self.text_history) :
                 self.index -= 1
             self.text = list(self.text_history[self.index])
+            self.pointer = len(self.text)
 
 
         elif but == pygame.K_DOWN:
@@ -82,10 +96,12 @@ class TextBox:
         return self.active
 
     def draw_clear_button(self):
+        # кнопка очистки
         pygame.draw.rect(self.root, self.button_color1, (self.place[0] + self.place[2] + 10, self.place[1], self.place[3] // 2, self.place[3] // 2))
         self.root.blit(self.arrow, (self.place[0] + self.place[2] + 10, self.place[1]))
 
     def draw_go_up_down_button(self):
+        # рисует бесполезные кнопки перемотки истории
         pygame.draw.rect(self.root, self.button_color1,  (self.place[0] - 50, self.place[1], 45, 45))
 
         pygame.draw.rect(self.root, self.button_color1,  (self.place[0] - 50, self.place[1] + 55, 45, 45))
@@ -93,11 +109,23 @@ class TextBox:
         self.root.blit(self.ar_up, (self.place[0] - 50, self.place[1]))
 
         self.root.blit(self.ar_down, (self.place[0] - 50, self.place[1] + 55))
+
+    def move_point(self, move):
+        #  двигает указатель (ну штука та которая текст рожает)
+        if move == pygame.K_LEFT:
+            if self.pointer > 0:
+                self.pointer -= 1
+
+        elif move == pygame.K_RIGHT:
+            if self.pointer < len(self.text):
+                self.pointer += 1
+    
     def clear(self):
         self.text = []
 
 
 class Lcd_clock:
+    # часы под иконкой kitty
     def __init__(self, font, place, color, date, root):
         self.font = font
         self.place = place
