@@ -40,7 +40,7 @@ def answer(msg, *args):
             plugs.remove("__init__.py")
             ans = []
 
-            for j in range(len(plugs) // plugs_len_inline):
+            while(plugs[:plugs_len_inline]):
                 ans.append(';\t'.join(plugs[:plugs_len_inline]))
                 print(ans[-1])
                 del plugs[:plugs_len_inline]
@@ -77,7 +77,7 @@ def answer(msg, *args):
             ans = []
             
 
-            for j in range(len(theme) // theme_len_inline):
+            while(theme[:theme_len_inline]):
                 ans.append(';\t'.join(theme[:theme_len_inline]))
                 del theme[:theme_len_inline]
             return ans
