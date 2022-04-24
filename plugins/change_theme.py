@@ -26,11 +26,6 @@ def change_config(msg):
 
     #  opening theme in theme directory
     print(path + "/themes/" + ' '.join(msg))
-    if os.path.exists(path + "themes" + slash + ' '.join(msg)):
-        theme = open(path + "themes" + slash + ' '.join(msg), "r")
-    else:
-        config.close()
-        return "нет такой темы"
     theme_data = theme.readlines()
     # 1 - BG
     # 2 - BorderColor
