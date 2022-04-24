@@ -15,6 +15,12 @@ def change_config(msg):
     conf_path = path + "config.py"
     config = open(conf_path, "r+")
     config_data = config.readlines()
+    if os.path.exists(path + "themes" + slash + ' '.join(msg)):
+        theme = open(path + "themes" + slash + ' '.join(msg), "r")
+    else:
+        #config.close()
+        return "нет такой темы"
+
     config.close()
     config = open(conf_path, "w")
 
@@ -73,7 +79,7 @@ def answer(msg, *args):
         
         if len(msg) == 2:
             from . import my_plugs_themes
-            return my_plugs_themes.answer("плагины")
+            return my_plugs_themes.answer("themes")
 
         x = change_config(msg[2:])
         return x
