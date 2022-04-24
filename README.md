@@ -18,7 +18,7 @@
   <h4>Custom plugs : https://github.com/bulochkasyablokom</h4>
   
   
-  <h4>to install -> pip install -r requirements.txt</h4>
+  <h4>to install -> pip install -r requirements.txt; python3 setup.py</h4>
   <br/>
   <h4>to start -> python3 main.pyw</h4>
 

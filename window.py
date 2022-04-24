@@ -70,8 +70,8 @@ chat = Chat(root, chat_box_place, Chat_BG, main_font)
 
 
 def draw_need_borders():
-    pygame.draw.rect(root, BorderColor, kittty_rectangle_place)  #  kitty picture border
-    root.blit(main_chr, (kittty_rectangle_place[0] + border_size, kittty_rectangle_place[1] + border_size))  # kitty image
+    pygame.draw.rect(root, BorderColor, kitty_rectangle_place)  #  kitty picture border
+    root.blit(main_chr, (kitty_rectangle_place[0] + border_size, kitty_rectangle_place[1] + border_size))  # kitty image
 
 
     pygame.draw.rect(root, BorderColor, chat_rectangle_place)  #  char border

@@ -9,9 +9,11 @@ def answer(msg, *args):
     import os
     ans = []
     if os.name == "nt":
-        return "Windows"
+        return ["Windows"]
 
     try:
+        HOSTNAME = open("/proc/sys/kernel/hostname").read()
+        ans.append("Hostname : " + HOSTNAME)
         x = open("/etc/os-release").readlines()
         keys = {"PRETTY_NAME":'name', "VERSION":'version'}
 
@@ -20,7 +22,23 @@ def answer(msg, *args):
 
                 if j == i[:i.index('=')]:
 
-                    ans.append(f"{keys[j]} : {i[i.index(str(j)) + 1 + len(j)::]}")
+                    ans.append(f"{keys[j]} : {i[i.index(str(j)) + 2 + len(j):-2]}")
+        DE = os.popen("echo $XDG_CURRENT_DESKTOP").read()
+        DE = DE[DE.index(':') + 1::]
+        ans.append("DE : " + DE)
+        
+        MODEL = open("/sys/devices/virtual/dmi/id/product_name", "r").read()
+        
+        ans.append("MODEL NAME : " + MODEL[:-1])
+        
+        CPU = open("/proc/cpuinfo").readlines()
+        cpu = "not found"
+        for i in CPU:
+            print(i)
+            if "model name" in i:
+                cpu = i[i.index(":") + 1::]
+                break
+        ans.append("CPU : " + cpu)
         
     except:
        ans = ["Not found"]

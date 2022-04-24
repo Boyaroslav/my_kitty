@@ -19,7 +19,7 @@ def timer(sleep_time, string):
     #sys.path.append(p[:ind])
     from subprocess import run
     syst = f'python3 {path}notification.py'
-    run(['python3',  f'{path}notification.py',  f"Таймер {string} истёк!!!"])
+    run(['python3',  f'{path}notification.pyw',  f"Таймер {sleep_time} {string} истёк!!!"])
 
     quit()
     #from  notification import Notify
@@ -27,6 +27,7 @@ def timer(sleep_time, string):
     #x.start()
 
 def answer(msg, *args):
+
     import threading
 
     msg = msg.split()
@@ -54,10 +55,10 @@ def answer(msg, *args):
         "hour": 360 
     }
     un = 1
-    name = f"{un} секунд"
+    name = f"секунд"
 
     for i in units:
-        if unit == i:
+        if i in unit:
             un = units[i]
             name = i
     
@@ -69,9 +70,9 @@ def answer(msg, *args):
 
 
     sleep_time = un * count
-    name = f'{count} {name}'
+    name = f'{name}'
     
-    thread = threading.Thread(target=timer, args=(sleep_time, name,))
+    thread = threading.Thread(target=timer, args=(sleep_time, "секунд",))
     thread.start()
 
     return "Таймер поставлен"

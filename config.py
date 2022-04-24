@@ -45,7 +45,7 @@ kitty_name_chatcolor = (255, 200, 200)
 
 chat_color = (255, 255, 255)
 
-kittty_rectangle_place = (50, 50,300, 400)
+kitty_rectangle_place = (50, 50,300, 400)
 
 kitty_name = "Kitty"
 
@@ -63,7 +63,7 @@ kitty_picture = path + "kitty.jpg"
 
 border_size = 5  #  pixels
 
-kitty_image_size = (kittty_rectangle_place[2] - (border_size * 2), kittty_rectangle_place[3] - (border_size * 2))
+kitty_image_size = (kitty_rectangle_place[2] - (border_size * 2), kitty_rectangle_place[3] - (border_size * 2))
 
 text_box_place = (500, 550, 600, 100)
 

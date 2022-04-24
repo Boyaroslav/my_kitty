@@ -23,6 +23,9 @@ def answer(msg, *args):
     what_are_you_feeling = ["что ты чувствуешь?", "what are you feeling", "как настроение", "как самочувствие"]
 
     what_are_you_feeling_answer = ["когда я с тобой, я рада", "мне хорошо с тобой", "у меня все хорошо\( ˘ . ˘ )/"]
+    
+    what_are_fuck = {"хаю хай":"с вами Ивангай!", "всем бобра дорогие друзья":"С вами Винди", 
+    "я люблю какать":"я тоже", "хочу тебя выебать":"жду", "сем":"жду"}
 
     if msg.lower() in what_are_you_doing:
         return choice(what_are_you_doing_answer)
@@ -38,5 +41,8 @@ def answer(msg, *args):
     for i in what_are_you_feeling:
         if i in msg.lower():
             return choice(what_are_you_feeling_answer)
+    for i in what_are_fuck:
+        if i in msg.lower():
+            return what_are_fuck[i]
 
     
