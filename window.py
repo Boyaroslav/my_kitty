@@ -34,7 +34,7 @@ history.pop_last = parser.pop_last
 
 #  font
 
-font = pygame.font.Font(path + clock_font, 50)     #  for clock
+font = pygame.font.Font(clock_font, 50)     #  for clock
 
 
 

@@ -28,22 +28,22 @@ if "__pycache__" in plugins:
     plugins.remove("__pycache__")  # Better leave it here, okay?
 
 
-BG = "etc/Ubuntumykittty.png"
+BG = (17, 20, 24)
 
-BorderColor = (71, 3, 51)
+BorderColor = (60, 150, 60)
 
-clock_font = 'lcd.ttf'
+clock_font = path + 'lcd.ttf'
 
 clock_place = (50, 500, 300, 60)
 
-clock_colors = [(174, 164, 176), (113, 3, 36)] 
+clock_colors = [(45, 194, 126), (0, 0, 0)] 
 
 
-Chat_BG = (79, 2, 29)
+Chat_BG = (17, 20, 24)
 
-kitty_name_chatcolor = (255, 255, 255)
+kitty_name_chatcolor = (255, 200, 200)
 
-chat_color = (239, 225, 241)
+chat_color = (255, 255, 255)
 
 kittty_rectangle_place = (50, 50,300, 400)
 
@@ -55,9 +55,9 @@ chat_rectangle_place = (500, 50, 600, 500)
 count_messages_visible = 15
 maxlen_message = 100
 
-chat_kitty_text = (67, 53, 64)
+chat_kitty_text = (0, 50, 50)
 
-button_color1 = (74, 4, 53)
+button_color1 = (0, 100, 100)
 
 kitty_picture = path + "kitty.jpg"
 
@@ -77,7 +77,7 @@ text_font = 'URW Gothic'
 #  text_font = "Noto Sans"
 #  text_font = "Hack"
 
-box_color = (217, 171, 150)
+box_color = (200, 255, 200)
 
 
 removing_speed = 0.1
