@@ -24,7 +24,10 @@ def answer(msg, *args):
 
                     ans.append(f"{keys[j]} : {i[i.index(str(j)) + 2 + len(j):-2]}")
         DE = os.popen("echo $XDG_CURRENT_DESKTOP").read()
-        DE = DE[DE.index(':') + 1::]
+        if ':' in DE:
+            DE = DE[DE.index(':') + 1::]
+        else:
+            pass
         ans.append("DE : " + DE)
         
         MODEL = open("/sys/devices/virtual/dmi/id/product_name", "r").read()

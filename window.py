@@ -174,10 +174,14 @@ while True:
                 mods = pygame.key.get_mods()
                 if mods & pygame.KMOD_CTRL:
                     box.paste(str(pyperclip.paste()))
-            elif i.key == pygame.K_c:
+                else:
+                    box.add_let(i.unicode)
+            elif i.key == pygame.K_c :
                 mods = pygame.key.get_mods()
                 if mods & pygame.KMOD_CTRL:
                     pyperclip.copy(''.join(box.text))
+                else:
+                    box.add_let(i.unicode)
             else:
                 #box.add_let(v[v.index(':') + 3:v.index(',') - 1])
                 box.add_let(i.unicode)
