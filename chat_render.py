@@ -25,7 +25,7 @@ class Chat:
                 end = 0
             else:
                 end = len(history) - config.count_messages_visible - 1
-            messy = self.place[1] + ((0 ) * 25) + 50
+            messy = self.place[1] + ((0 ) * 25) + 25
 
 
             for i in range(end, len(history) , 1):

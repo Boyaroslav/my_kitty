@@ -53,6 +53,10 @@ class TextBox:
     def disactive(self):
         self.color1=self. color
         self.active = 0
+    
+    def paste(self, x):
+        self.text = self.text + list(x)
+        self.pointer = len(self.text)
 
     def add_let(self, input):
         # добавляет юникодный(и не очень) символ

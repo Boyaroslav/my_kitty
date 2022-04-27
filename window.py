@@ -5,6 +5,7 @@ from config import *
 from chat_render import Chat 
 from chat_history import History as hist
 from chat_parser import Parser
+import pyperclip
 
 
 
@@ -16,6 +17,50 @@ from datetime import datetime
 Bobylev Yaroslav 2022
 This script use pygame library to render the window
 '''
+
+#  нужно для корректировки тем
+def hex_to_rgb(hex):
+    hex = hex[1:]
+    rgb = []
+    for i in (0, 2, 4):
+        d = int(hex[i:i+2], 16)
+        rgb.append(d)
+  
+    return tuple(rgb)
+
+#  не нужно вовсе
+def rgb_to_hex(r, g, b):
+    return ('{:X}{:X}{:X}').format(r, g, b)
+
+def normalize(x):
+    if type(x) == type((1, 2, 3)):
+        return x
+    if type(x) == type("Mr Kostil"):
+        if x[0] == "#":
+            return hex_to_rgb(x)
+        else:
+            return x
+
+#  нормализация переменных (hex строка не принимается)
+BG = normalize(BG)
+
+BorderColor = normalize(BorderColor)
+
+clock_colors =  [normalize(clock_colors[0]), normalize(clock_colors[1])]
+
+Chat_BG = normalize(Chat_BG)
+
+kitty_name_chatcolor =  normalize(kitty_name_chatcolor)
+
+chat_color = normalize(chat_color)
+
+chat_kitty_text = normalize(chat_kitty_text)
+
+button_color1 = normalize(button_color1)
+
+box_color = normalize(box_color)
+
+# Если кто либо на это покусится, то пойдет куда подальше
 
 
 
@@ -124,7 +169,15 @@ while True:
 
             elif i.key == pygame.K_LEFT or i.key == pygame.K_RIGHT:
                 box.move_point(i.key)
-
+            
+            elif i.key == pygame.K_v:
+                mods = pygame.key.get_mods()
+                if mods & pygame.KMOD_CTRL:
+                    box.paste(str(pyperclip.paste()))
+            elif i.key == pygame.K_c:
+                mods = pygame.key.get_mods()
+                if mods & pygame.KMOD_CTRL:
+                    pyperclip.copy(''.join(box.text))
             else:
                 #box.add_let(v[v.index(':') + 3:v.index(',') - 1])
                 box.add_let(i.unicode)
