@@ -123,6 +123,9 @@ class Parser:
 
     def clear_requested(self):
         del self.requested[:]
+    
+    def get_plugs(self, n=1):
+        return self.requested[-n:]
         
 
 

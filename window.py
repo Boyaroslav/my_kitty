@@ -5,7 +5,9 @@ from config import *
 from chat_render import Chat 
 from chat_history import History as hist
 from chat_parser import Parser
+from top_bar import Bar
 import pyperclip
+
 
 
 
@@ -17,6 +19,32 @@ from datetime import datetime
 Bobylev Yaroslav 2022
 This script use pygame library to render the window
 '''
+
+class Kitty:
+    def __init__(self, pict, name, font, text_color):
+        self.pict = pict
+        self.name = name
+        self.font = font
+        self.text_color = text_color
+
+    def place(self):
+        if draw_picture_bar:
+            pygame.draw.rect(root, Chat_BG, (kitty_rectangle_place[0] - 10, kitty_rectangle_place[1] - 10, kitty_rectangle_place[2] + 20,kitty_rectangle_place[3] + border_size + 35 ))
+        # picture and border
+        pygame.draw.rect(root, BorderColor, kitty_rectangle_place)  #  kitty picture border
+        root.blit(self.pict, (kitty_rectangle_place[0] + border_size, kitty_rectangle_place[1] + border_size))  # kitty image
+        # name and names border
+        text = self.font.render(self.name, True, self.text_color)
+        wid, hei = self.font.size(self.name)
+
+        
+        pygame.draw.rect(root, BorderColor, (kitty_rectangle_place[0], kitty_rectangle_place[1] + kitty_rectangle_place[3] + border_size, wid + 50, 20))
+        
+        root.blit(text, (kitty_rectangle_place[0] + 10, kitty_rectangle_place[1] + kitty_rectangle_place[3] + border_size + 2))
+        
+
+        
+
 
 #  нужно для корректировки тем
 def hex_to_rgb(hex):
@@ -88,7 +116,7 @@ font = pygame.font.Font(clock_font, 50)     #  for clock
 main_chr = pygame.image.load(kitty_picture)
 main_chr = pygame.transform.scale(main_chr, kitty_image_size)  # rescaling to border size
 
-
+kitty_char = Kitty(main_chr, kitty_name, main_font, box_color)
 
 
 #  Lcd clock for time
@@ -114,10 +142,14 @@ is_backspace = 0
 chat = Chat(root, chat_box_place, Chat_BG, main_font)
 
 
-def draw_need_borders():
-    pygame.draw.rect(root, BorderColor, kitty_rectangle_place)  #  kitty picture border
-    root.blit(main_chr, (kitty_rectangle_place[0] + border_size, kitty_rectangle_place[1] + border_size))  # kitty image
+# top bar
+bar = Bar(window_size, root, top_color, main_font, box_color)
 
+
+def draw_need_borders():
+    #pygame.draw.rect(root, BorderColor, kitty_rectangle_place)  #  kitty picture border
+    #root.blit(main_chr, (kitty_rectangle_place[0] + border_size, kitty_rectangle_place[1] + border_size))  # kitty image
+    kitty_char.place()
 
     pygame.draw.rect(root, BorderColor, chat_rectangle_place)  #  char border
 
@@ -157,6 +189,11 @@ while True:
                     box.set_history(pygame.K_UP)
                 elif (x >= text_box_place[0] - 50 and x <= text_box_place[0] and y >= text_box_place[1] + 55 and y  <= text_box_place[1] + 100):
                     box.set_history(pygame.K_DOWN)
+                elif (x >= chat.get_butts_pos()[0] and x <= chat.get_butts_pos()[0] + 20 and y >= chat.get_butts_pos()[1] and y <= chat.get_butts_pos()[1] + 20):
+                    chat.change_index(-1)
+                elif (x >= chat.get_butts_pos()[0] and x <= chat.get_butts_pos()[0] + 20 and y >= chat.get_butts_pos()[1] + 25 and y <= chat.get_butts_pos()[1] + 45):
+                    chat.change_index(1)
+                
                 else:
                     box.disactive()
         if i.type == pygame.KEYDOWN and box.isactive:
@@ -176,6 +213,8 @@ while True:
                     box.paste(str(pyperclip.paste()))
                 else:
                     box.add_let(i.unicode)
+                    
+
             elif i.key == pygame.K_c :
                 mods = pygame.key.get_mods()
                 if mods & pygame.KMOD_CTRL:
@@ -185,6 +224,7 @@ while True:
             else:
                 #box.add_let(v[v.index(':') + 3:v.index(',') - 1])
                 box.add_let(i.unicode)
+            chat.clear_index()
         if i.type == pygame.KEYUP:
             is_backspace = 0
     if is_backspace:
@@ -197,6 +237,7 @@ while True:
 
 
     chat.draw(history.get_history())
+    chat.draw_buttons()
     box.draw_bar()
     box.draw_clear_button()
     box.draw_go_up_down_button()
@@ -208,6 +249,8 @@ while True:
         if history[len(history) - 1] == [kitty_name, "__clear__"]:
             parser.clear_requested()
             clear_chat_history()
+    if draw_top_bar:
+        bar.draw(["power " + open("/sys/class/power_supply/BAT0/capacity").read() + "%"] +  parser.get_plugs(3))
 
 
 

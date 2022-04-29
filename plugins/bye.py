@@ -7,8 +7,6 @@ github - https://github.com/Boyaroslav
 def answer(msg, *args):
 
 
-    #  это конечно кабздец костыль, надо фиксить
-
     answers = ["пока(", "прощай...", "пока", "удачи.", "bye-bye", "goodbye", "чао :("]
 
     need = ["пока", "мне пора", "goodbye", "bye", "exit", "quit"]

@@ -74,7 +74,7 @@ class TextBox:
 
 
     def del_let(self):
-        if len(self.text) != 0 and self.pointer <= len(self.text):
+        if len(self.text) != 0 and self.pointer <= len(self.text) and self.pointer > 0:
             self.pointer -= 1
             del self.text[self.pointer]
         if self.pointer > len(self.text):

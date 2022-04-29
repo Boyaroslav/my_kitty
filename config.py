@@ -28,26 +28,26 @@ if "__pycache__" in plugins:
     plugins.remove("__pycache__")  # Better leave it here, okay?
 
 
-BG = path + "etc/spikebg.jpg"
+BG = path + "etc/Ubuntumykitty.png"
 
-BorderColor = (38, 23, 16)
+BorderColor = (71, 3, 51)
 
 clock_font = path + 'lcd.ttf'
 
 clock_place = (50, 500, 300, 60)
 
-clock_colors = [(161, 76, 78), (73, 58, 91)]
+clock_colors = [(174, 164, 176), (113, 3, 36)] 
 
 
-Chat_BG = (142, 58, 47)
+Chat_BG = (79, 2, 29)
 
-kitty_name_chatcolor = (97, 207, 95)
+kitty_name_chatcolor = (255, 255, 255)
 
-chat_color = (138, 204, 0)
+chat_color = (239, 225, 241)
 
 kitty_rectangle_place = (50, 50,300, 400)
 
-kitty_name = "Spike"
+kitty_name = "Kitty"
 
 
 chat_rectangle_place = (500, 50, 600, 500)
@@ -55,11 +55,11 @@ chat_rectangle_place = (500, 50, 600, 500)
 count_messages_visible = 17
 maxlen_message = 100
 
-chat_kitty_text = (0, 77, 31)
+chat_kitty_text = (67, 53, 64)
 
-button_color1 = (43, 95, 43)
+button_color1 = (74, 4, 53)
 
-kitty_picture = path + "etc/spike_image.jpg"
+kitty_picture = path + "kitty.jpg"
 
 border_size = 5  #  pixels
 
@@ -77,10 +77,19 @@ text_font = 'URW Gothic'
 #  text_font = "Noto Sans"
 #  text_font = "Hack"
 
-box_color = (254, 99, 160)
+box_color = (217, 171, 150)
 
 
 removing_speed = 0.1
 
 
 notify_size = (400, 150)
+
+
+# рисует поле, содержащее картинку персонажа и имя
+draw_picture_bar = False
+
+# рисует верхнюю фигню как в гноме 
+draw_top_bar = True
+
+top_color = Chat_BG
