@@ -28,18 +28,18 @@ if "__pycache__" in plugins:
     plugins.remove("__pycache__")  # Better leave it here, okay?
 
 
-BG = (50, 50, 50)   #  this is theme from old my_kitty
+BG = (17, 20, 24)
 
-BorderColor = (100, 50, 50)
+BorderColor = (60, 150, 60)
 
 clock_font = path + 'lcd.ttf'
 
 clock_place = (50, 500, 300, 60)
 
-clock_colors = [(50, 50, 50), (255, 200, 200)]
+clock_colors = [(45, 194, 126), (0, 0, 0)] 
 
 
-Chat_BG = (50, 50, 60)
+Chat_BG = (17, 20, 24)
 
 kitty_name_chatcolor = (255, 200, 200)
 
@@ -55,9 +55,9 @@ chat_rectangle_place = (500, 50, 600, 500)
 count_messages_visible = 17
 maxlen_message = 100
 
-chat_kitty_text = (255, 192, 203)
+chat_kitty_text = (0, 50, 50)
 
-button_color1 = (100, 50, 50)
+button_color1 = (0, 100, 100)
 
 kitty_picture = path + "kitty.jpg"
 border_size = 5  #  pixels
@@ -76,7 +76,7 @@ text_font = 'URW Gothic'
 #  text_font = "Noto Sans"
 #  text_font = "Hack"
 
-box_color = (150, 100, 100)
+box_color = (200, 255, 200)
 
 
 removing_speed = 0.1
