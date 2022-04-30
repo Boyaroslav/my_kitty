@@ -1,11 +1,14 @@
-(50, 50, 50)   #  this is theme from old my_kitty
-(100, 50, 50)
-(50, 50, 60)
-(255, 200, 200)
-(255, 192, 203)
-(100, 50, 50)
-(150, 100, 100)
-[(50, 50, 50), (255, 200, 200)]
-(255, 255, 255)
-"Kitty"
-path + "kitty.jpg"
+BG = (50, 50, 50)   #  this is theme from old my_kitty
+BorderColor = (100, 50, 50)
+Chat_BG = (50, 50, 60)
+kitty_name_chatcolor = (255, 200, 200)
+chat_kitty_text = (255, 192, 203)
+button_color1 = (100, 50, 50)
+box_color = (150, 100, 100)
+clock_colors = [(50, 50, 50), (255, 200, 200)]
+chat_color = (255, 255, 255)
+kitty_name = "Kitty"
+kitty_picture = path + "kitty.jpg"
+top_color = BorderColor
+#draw_buttons = False   если хочешь, чтобы все было почти как в первой версии, бахай это
+#draw_top_bar = False

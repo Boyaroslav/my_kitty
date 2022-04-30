@@ -28,22 +28,22 @@ if "__pycache__" in plugins:
     plugins.remove("__pycache__")  # Better leave it here, okay?
 
 
-BG = path + "etc/Ubuntumykitty.png"
+BG = (50, 50, 50)   #  this is theme from old my_kitty
 
-BorderColor = (71, 3, 51)
+BorderColor = (100, 50, 50)
 
 clock_font = path + 'lcd.ttf'
 
 clock_place = (50, 500, 300, 60)
 
-clock_colors = [(174, 164, 176), (113, 3, 36)] 
+clock_colors = [(50, 50, 50), (255, 200, 200)]
 
 
-Chat_BG = (79, 2, 29)
+Chat_BG = (50, 50, 60)
 
-kitty_name_chatcolor = (255, 255, 255)
+kitty_name_chatcolor = (255, 200, 200)
 
-chat_color = (239, 225, 241)
+chat_color = (255, 255, 255)
 
 kitty_rectangle_place = (50, 50,300, 400)
 
@@ -55,12 +55,11 @@ chat_rectangle_place = (500, 50, 600, 500)
 count_messages_visible = 17
 maxlen_message = 100
 
-chat_kitty_text = (67, 53, 64)
+chat_kitty_text = (255, 192, 203)
 
-button_color1 = (74, 4, 53)
+button_color1 = (100, 50, 50)
 
 kitty_picture = path + "kitty.jpg"
-
 border_size = 5  #  pixels
 
 kitty_image_size = (kitty_rectangle_place[2] - (border_size * 2), kitty_rectangle_place[3] - (border_size * 2))
@@ -77,7 +76,7 @@ text_font = 'URW Gothic'
 #  text_font = "Noto Sans"
 #  text_font = "Hack"
 
-box_color = (217, 171, 150)
+box_color = (150, 100, 100)
 
 
 removing_speed = 0.1
@@ -91,5 +90,7 @@ draw_picture_bar = False
 
 # рисует верхнюю фигню как в гноме 
 draw_top_bar = True
+# рисует кнопочки
+draw_buttons = True
 
-top_color = Chat_BG
+top_color = BorderColor

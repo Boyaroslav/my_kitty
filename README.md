@@ -19,6 +19,8 @@
   
   
   <h4>to install -> pip install -r requirements.txt; python3 setup.py</h4>
+  <h3>to create icon in your bar (works on linux only)</h3>
+  <h4>python3 setup.py</h4>
   <br/>
   <h4>to start -> python3 main.pyw</h4>
 
@@ -33,17 +35,7 @@
 <h2>Font - LCD Light.   https://fonts-online.ru/fonts/lcd</h2>
 <h3>Как написать свою тему:</h3>
 <h4>вы должны создать в директории themes текстовый файл в котором(построчно начиная с 1) находятся переменные конфига:</h4>
-  <h5>    # 1 - BG - фон(цвет)</h5>
-  <h5>    # 2 - BorderColor - границы чата  других баров / цвет ника пользователя</h5>
-  <h5>    # 3 - Chat_BG - цвет фона чата</h5>
-  <h5>    # 4 - kitty_name_chatcolor - цвет ника kitty</h5>
-  <h5>    # 5 - chat_kitty_text - цвет text_box</h5>
-  <h5>    # 6 - button_color1 - цвет кнопок "очистить", "предыдущее сообщение", "будущее сообщение"</h5>
-  <h5>    # 7 - box_color - цвет шрифта в text_box</h5>
-  <h5>    # 8 - clock_colors - [(цвет шрифта часов), (цвет фона часов)]</h5>
-  <h5>    # 9 - chat_color - цвет сообщений в чате (не ник)</h5>
-  <h5>    # 10 - kitty_name</h5>
-  <h5>    # 11 - kitty_picture - путь к иконке персонажа</h5>
+<h4>в нём вы пишете имена переменных и их значения (hex принимается)</h4>
 
   
  

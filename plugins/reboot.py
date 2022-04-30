@@ -1,4 +1,7 @@
 
+import pygame
+
+
 def rbt(x):
     import os
     ans = str("python3 " + x + "main.pyw")
@@ -20,5 +23,5 @@ def answer(msg, *args):
         reb_thread = threading.Thread(target=rbt, args=(str(p[:ind]),))
         reb_thread.start()
         from pygame import quit
-        quit()
+        return pygame.quit()
         

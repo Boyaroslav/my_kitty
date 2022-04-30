@@ -72,7 +72,6 @@ class Chat:
         self.root.blit(ar_down, (self.place[0] + self.place[2] + 10, self.place[1] + 25))
     
     def get_butts_pos(self):
-        print(self.index)
         return (self.place[0] + self.place[2] + 10, self.place[1])
     def change_index(self, i):
         if len(self.history) > config.count_messages_visible:

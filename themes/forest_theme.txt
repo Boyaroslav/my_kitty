@@ -1,11 +1,12 @@
-"#2f5233"
-"#b1d8b7"
-"#116530"
-"#ecf87f"
-"#76b947"
-"#76b947"
-"#3d550c"
-["#dba40e", "#2c5e1a"]
-"#ecf87f"
-"Leavy"
-path + "etc/leave.png"
+BG = "#2f5233"
+BorderColor = "#b1d8b7"
+Chat_BG = "#116530"
+kitty_name_chatcolor = "#ecf87f"
+chat_kitty_text = "#76b947"
+button_color1 = "#76b947"
+box_color = "#3d550c"
+clock_colors = ["#dba40e", "#2c5e1a"]
+chat_color = "#ecf87f"
+kitty_name = "Leavy"
+kitty_picture = path + "etc/leave.png"
+top_color = (200, 255, 200)

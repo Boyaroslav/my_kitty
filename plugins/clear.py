@@ -7,9 +7,6 @@ github - https://github.com/Boyaroslav
 '''
 
 
-
-# DONT WORK
-
 def answer(msg, *args):
     need = ["clear", "очистить", "удали историю", "clean"]
 

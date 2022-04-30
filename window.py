@@ -72,6 +72,8 @@ def normalize(x):
 #  нормализация переменных (hex строка не принимается)
 BG = normalize(BG)
 
+
+# не забывайте преобразовывать все данные цвета в кортеж rgb, pygame другое не ест
 BorderColor = normalize(BorderColor)
 
 clock_colors =  [normalize(clock_colors[0]), normalize(clock_colors[1])]
@@ -87,6 +89,8 @@ chat_kitty_text = normalize(chat_kitty_text)
 button_color1 = normalize(button_color1)
 
 box_color = normalize(box_color)
+
+top_color = normalize(top_color)
 
 # Если кто либо на это покусится, то пойдет куда подальше
 
@@ -183,16 +187,17 @@ while True:
                 x, y = pygame.mouse.get_pos()
                 if (x >= text_box_place[0] and x <= text_box_place[0] + text_box_place[2]) and (y >= text_box_place[1] and y <= text_box_place[1] + text_box_place[3]):
                     box.active
-                elif (x >= text_box_place[0] + text_box_place[2] +10 and x <= text_box_place[0] + text_box_place[2] +10 + (text_box_place[3] // 2) and y >= text_box_place[1] and y <= text_box_place[1] + (text_box_place[3] // 2)):
-                    box.clear()
-                elif (x >= text_box_place[0] - 50 and x <= text_box_place[0] and y >= text_box_place[1] and y  <= text_box_place[1] + 45):
-                    box.set_history(pygame.K_UP)
-                elif (x >= text_box_place[0] - 50 and x <= text_box_place[0] and y >= text_box_place[1] + 55 and y  <= text_box_place[1] + 100):
-                    box.set_history(pygame.K_DOWN)
-                elif (x >= chat.get_butts_pos()[0] and x <= chat.get_butts_pos()[0] + 20 and y >= chat.get_butts_pos()[1] and y <= chat.get_butts_pos()[1] + 20):
-                    chat.change_index(-1)
-                elif (x >= chat.get_butts_pos()[0] and x <= chat.get_butts_pos()[0] + 20 and y >= chat.get_butts_pos()[1] + 25 and y <= chat.get_butts_pos()[1] + 45):
-                    chat.change_index(1)
+                if draw_buttons:
+                    if (x >= text_box_place[0] + text_box_place[2] +10 and x <= text_box_place[0] + text_box_place[2] +10 + (text_box_place[3] // 2) and y >= text_box_place[1] and y <= text_box_place[1] + (text_box_place[3] // 2)):
+                        box.clear()
+                    elif (x >= text_box_place[0] - 50 and x <= text_box_place[0] and y >= text_box_place[1] and y  <= text_box_place[1] + 45):
+                        box.set_history(pygame.K_UP)
+                    elif (x >= text_box_place[0] - 50 and x <= text_box_place[0] and y >= text_box_place[1] + 55 and y  <= text_box_place[1] + 100):
+                        box.set_history(pygame.K_DOWN)
+                    elif (x >= chat.get_butts_pos()[0] and x <= chat.get_butts_pos()[0] + 20 and y >= chat.get_butts_pos()[1] and y <= chat.get_butts_pos()[1] + 20):
+                        chat.change_index(-1)
+                    elif (x >= chat.get_butts_pos()[0] and x <= chat.get_butts_pos()[0] + 20 and y >= chat.get_butts_pos()[1] + 25 and y <= chat.get_butts_pos()[1] + 45):
+                        chat.change_index(1)
                 
                 else:
                     box.disactive()
@@ -237,10 +242,11 @@ while True:
 
 
     chat.draw(history.get_history())
-    chat.draw_buttons()
     box.draw_bar()
-    box.draw_clear_button()
-    box.draw_go_up_down_button()
+    if draw_buttons:
+        box.draw_clear_button()
+        box.draw_go_up_down_button()
+        chat.draw_buttons()
 
 
     #  я понимаю, что это жесткий костыль. Я не придумал пока решения лучше, потому fix needed

@@ -1,11 +1,12 @@
-path + "etc/wp9.jpg"
-(227, 191, 158)
-(52, 51, 50)
-(119, 118, 22)
-(71, 78, 87)
-(67, 93, 110)
-(176, 158, 105)
-[(236, 200, 165), (109, 22, 25)]
-(163, 156, 163)
-"Kitty"
-path + "kitty.jpg"
+BG = path + "etc/wp9.jpg"
+BorderColor = (227, 191, 158)
+Chat_BG = (52, 51, 50)
+kitty_name_chatcolor = (119, 118, 22)
+chat_kitty_text = (71, 78, 87)
+button_color1 = (67, 93, 110)
+box_color = (176, 158, 105)
+clock_colors = [(236, 200, 165), (109, 22, 25)]
+chat_color = (163, 156, 163)
+kitty_name = "Kitty"
+kitty_picture = path + "kitty.jpg"
+top_color = BorderColor

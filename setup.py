@@ -10,7 +10,7 @@ import config
 import os
 deskt = open(os.path.expanduser('~') + "/.local/share/applications/my_kitty.desktop", "w+")
 
-file = ["[Desktop Entry]\n", "Name = my_kitty\n", "Version=3.6.2\n", f"Icon = {config.kitty_picture}\n",
+file = ["[Desktop Entry]\n", "Name = my_kitty\n", "Version=3.6.4\n", f"Icon = {config.kitty_picture}\n",
         f"Exec = python3 {config.path}main.pyw\n", "Terminal=false\n", "Type = Application\n"]
 
 deskt.writelines(file)

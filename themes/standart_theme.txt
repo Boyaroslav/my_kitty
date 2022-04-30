@@ -1,11 +1,12 @@
-(17, 20, 24)
-(60, 150, 60)
-(17, 20, 24)
-(255, 200, 200)
-(0, 50, 50)
-(0, 100, 100)
-(200, 255, 200)
-[(45, 194, 126), (0, 0, 0)] 
-(255, 255, 255)
-"Kitty"
-path + "kitty.jpg"
+BG = (17, 20, 24)
+BorderColor = (60, 150, 60)
+Chat_BG = (17, 20, 24)
+kitty_name_chatcolor = (255, 200, 200)
+chat_kitty_text = (0, 50, 50)
+button_color1 = (0, 100, 100)
+box_color = (200, 255, 200)
+clock_colors = [(45, 194, 126), (0, 0, 0)] 
+chat_color = (255, 255, 255)
+kitty_name = "Kitty"
+kitty_picture = path + "kitty.jpg"
+top_color = BorderColor

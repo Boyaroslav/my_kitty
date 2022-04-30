@@ -38,28 +38,13 @@ def change_config(msg):
     # 9 - chat_color
     # 10 - kitty_name
     # 11 - kitty_picture 
-    keys = {
-            "BG":0,
-            "BorderColor":1,
-            "Chat_BG":2,
-            "kitty_name_chatcolor":3,
-            "chat_kitty_text":4,
-            "button_color1":5,
-            "box_color":6,
-	    "clock_colors":7,
-            "chat_color":8,
-            "kitty_name":9,
-            "kitty_picture":10
-            }
-
     for i in range(0, len(config_data)):
         if "=" in config_data[i]:
-            for j in keys:
-                if j == config_data[i][:config_data[i].index('=')].strip():
-                    config_data[i] = str(j + " = " + theme_data[keys[j]])
-                    if config_data[i][-1] != "\n":
-                        config_data[i] = config_data[i] + "\n"
-                    continue
+            for j in theme_data:
+    
+
+                if config_data[i][:config_data[i].index("=") - 1].strip() == j[:j.index("=") - 1].strip():
+                    config_data[i] = j
 
     config.writelines(config_data)
 

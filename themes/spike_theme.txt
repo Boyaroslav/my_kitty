@@ -1,11 +1,12 @@
-path + "etc/spikebg.jpg"
-(38, 23, 16)
-(142, 58, 47)
-(97, 207, 95)
-(0, 77, 31)
-(43, 95, 43)
-(254, 99, 160)
-[(161, 76, 78), (73, 58, 91)]
-(138, 204, 0)
-"Spike"
-path + "etc/spike_image.jpg"
+BG = path + "etc/spikebg.jpg"
+BorderColor = (38, 23, 16)
+Chat_BG = (142, 58, 47)
+kitty_name_chatcolor = (97, 207, 95)
+chat_kitty_text = (0, 77, 31)
+button_color1 = (43, 95, 43)
+box_color = (254, 99, 160)
+clock_colors = [(161, 76, 78), (73, 58, 91)]
+chat_color = (138, 204, 0)
+kitty_name = "Spike"
+kitty_picture = path + "etc/spike_image.jpg"
+top_color = BorderColor

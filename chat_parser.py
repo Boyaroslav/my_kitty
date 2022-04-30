@@ -32,6 +32,7 @@ class Parser:
             plugin = getattr(plugin, pl[:pl.index('.py')])
 
             ans = plugin.answer(msg[1])
+            #delattr(plugin,pl[:pl.index('.py')])
             if(type(ans)) == type(1):
                 ans = str(ans)
 
@@ -76,6 +77,7 @@ class Parser:
                 plugin = getattr(plugin, pl[:pl.index('.py')])
     
                 ans = plugin.answer(msg[1])
+                #delattr(plugin,pl[:pl.index('.py')])
                 if(type(ans)) == type(1):
                     ans = str(ans)
 
@@ -112,11 +114,15 @@ class Parser:
                 plugin = getattr(plugin, 'standart_output')
 
                 ans = plugin.answer(msg[1], self.requested)
+                #delattr(plugin,pl[:pl.index('.py')])
                 if(type(ans)) == type(1):
                     ans = str(ans)
 
                 self.history.send_msg(ans, user=kitty_name)
         self.requested.append(plugin.__name__)
+        # clearing trash
+        del plugin
+        
 
 
 
