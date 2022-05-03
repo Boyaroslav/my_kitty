@@ -24,4 +24,7 @@ def answer(msg, *args):
         reb_thread.start()
         from pygame import quit
         return pygame.quit()
+    elif msg in ["reload", "обновить", "обновись"]:
+        return 'reload'
+
         

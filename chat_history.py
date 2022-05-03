@@ -35,5 +35,8 @@ class History:
 
     def __len__(self):
         return len(self.array)
+    
+    def del_mess(self, i):
+        del self.array[i]
 
     

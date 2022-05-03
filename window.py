@@ -1,3 +1,4 @@
+from distutils.command.config import config
 import pygame
 import time
 from text_box import TextBox, Lcd_clock
@@ -6,19 +7,29 @@ from chat_render import Chat
 from chat_history import History as hist
 from chat_parser import Parser
 from top_bar import Bar
+from importlib import reload
+import sys
 import pyperclip
-
-
-
-
 from datetime import datetime
-
 
 
 '''
 Bobylev Yaroslav 2022
 This script use pygame library to render the window
 '''
+
+# инициализация переменных, не входящих в графическую составляющую
+
+window_size = (1200, 700)
+
+
+pygame.init() 
+root = pygame.display.set_mode(window_size)
+pygame.display.set_caption("your kitty :)")
+clock = pygame.time.Clock()
+history = hist()
+parser = Parser(history)
+history.pop_last = parser.pop_last
 
 class Kitty:
     def __init__(self, pict, name, font, text_color):
@@ -43,9 +54,6 @@ class Kitty:
         root.blit(text, (kitty_rectangle_place[0] + 10, kitty_rectangle_place[1] + kitty_rectangle_place[3] + border_size + 2))
         
 
-        
-
-
 #  нужно для корректировки тем
 def hex_to_rgb(hex):
     hex = hex[1:]
@@ -69,86 +77,79 @@ def normalize(x):
         else:
             return x
 
-#  нормализация переменных (hex строка не принимается)
-BG = normalize(BG)
 
+#  перезагружает всю графическую составляющую
+def reld():
+    config = reload(sys.modules['config'])
+    global BG
+    global BorderColor
+    global clock_colors
+    global Chat_BG
+    global kitty_name_chatcolor
+    global chat_color
+    global chat_kitty_text
+    global button_color1
+    global box_color
+    global top_color
+    global main_font
+    global font
+    global main_chr
+    global lcd_clock
+    global kitty_char
+    global box
+    global is_backspace
+    global chat
+    global bar
+    global bg_fill
+    global BG_IM
+    global top_color
+    global kitty_name
 
-# не забывайте преобразовывать все данные цвета в кортеж rgb, pygame другое не ест
-BorderColor = normalize(BorderColor)
+    #  нормализация переменных (hex строка не принимается)
+    BG = normalize(config.BG)
+    # не забывайте преобразовывать все данные цвета в кортеж rgb, pygame другое не ест
+    BorderColor = normalize(config.BorderColor)
+    clock_colors =  [normalize(config.clock_colors[0]), normalize(config.clock_colors[1])]
+    Chat_BG = normalize(config.Chat_BG)
+    kitty_name_chatcolor =  normalize(config.kitty_name_chatcolor)
+    chat_color = normalize(config.chat_color)
+    chat_kitty_text = normalize(config.chat_kitty_text)
+    button_color1 = normalize(config.button_color1)
+    box_color = normalize(config.box_color)
+    top_color = normalize(config.top_color)
+    # Если кто либо на это покусится, то пойдет куда подальше
+    #  initialisation:
+    main_font = pygame.font.SysFont(config.text_font, config.text_font_size)
+    #  font
+    font = pygame.font.Font(config.clock_font, 50)     #  for clock
 
-clock_colors =  [normalize(clock_colors[0]), normalize(clock_colors[1])]
+    #  importing files
+    main_chr = pygame.image.load(config.kitty_picture)
+    main_chr = pygame.transform.scale(main_chr, config.kitty_image_size)  # rescaling to border size
 
-Chat_BG = normalize(Chat_BG)
+    #  Lcd clock for time
+    lcd_clock = Lcd_clock(font, config.clock_place, config.clock_colors, datetime, root)
+    #  window icon
+    pygame.display.set_icon(main_chr)
+    #  bar to input text
+    box = TextBox(root, config.chat_kitty_text, config.box_color, config.text_box_place, main_font, history,  config.maxlen_message, config.button_color1, config.path)
+    is_backspace = 0
+    # box with chat
+    chat = Chat(root, config.chat_box_place, config.Chat_BG, main_font)
+    # top bar
+    bar = Bar(window_size, root, config.top_color, main_font, config.box_color)
+    kitty_char = Kitty(main_chr, config.kitty_name, main_font, config.box_color)
+    if type(BG) == type((1, 2, 3)):
+        bg_fill = root.fill(BG)
 
-kitty_name_chatcolor =  normalize(kitty_name_chatcolor)
+    elif type(BG) == type("Mr Kostil"):
+        BG_IM = pygame.image.load(BG)
+        BG_IM = pygame.transform.smoothscale(BG_IM, (window_size[0] * BG_blur, window_size[1] * BG_blur))
+        BG_IM = pygame.transform.scale(BG_IM, window_size)
+    
+        bg_fill = root.blit(BG_IM, (0, 0))
 
-chat_color = normalize(chat_color)
-
-chat_kitty_text = normalize(chat_kitty_text)
-
-button_color1 = normalize(button_color1)
-
-box_color = normalize(box_color)
-
-top_color = normalize(top_color)
-
-# Если кто либо на это покусится, то пойдет куда подальше
-
-
-
-window_size = (1200, 700)
-
-#  initialisation:
-
-pygame.init() 
-root = pygame.display.set_mode(window_size)
-pygame.display.set_caption("your kitty :)")
-clock = pygame.time.Clock()
-main_font = pygame.font.SysFont(text_font, text_font_size)
-history = hist()
-parser = Parser(history)
-history.pop_last = parser.pop_last
-
-#  font
-
-font = pygame.font.Font(clock_font, 50)     #  for clock
-
-
-
-#  importing files
-
-main_chr = pygame.image.load(kitty_picture)
-main_chr = pygame.transform.scale(main_chr, kitty_image_size)  # rescaling to border size
-
-kitty_char = Kitty(main_chr, kitty_name, main_font, box_color)
-
-
-#  Lcd clock for time
-
-lcd_clock = Lcd_clock(font, clock_place, clock_colors, datetime, root)
-
-
-#  window icon
-
-pygame.display.set_icon(main_chr)
-
-#  bar to input text
-
-box = TextBox(root, chat_kitty_text, box_color, text_box_place, main_font, history,  maxlen_message, button_color1, path)
-
-
-is_backspace = 0
-
-
-
-# box with chat
-
-chat = Chat(root, chat_box_place, Chat_BG, main_font)
-
-
-# top bar
-bar = Bar(window_size, root, top_color, main_font, box_color)
-
+reld()
 
 def draw_need_borders():
     #pygame.draw.rect(root, BorderColor, kitty_rectangle_place)  #  kitty picture border
@@ -165,20 +166,16 @@ def bye():
 def clear_chat_history():
     history.array.clear()
 
-if type(BG) == type((1, 2, 3)):
-    bg_fill = root.fill(BG)
-
-elif type(BG) == type("Mr Kostil"):
-    BG_IM = pygame.image.load(BG)
-    BG_IM = pygame.transform.scale(BG_IM, window_size)
-    bg_fill = root.blit(BG_IM, (0, 0))
-
-
-
-
-
 
 while True:
+    if history:
+        if history[len(history) - 1] == [kitty_name, "__clear__"]:
+            parser.clear_requested()
+            clear_chat_history()
+        elif history[len(history) - 1] == [kitty_name, 'reload']:
+            history.del_mess(-1)
+            history.send_msg(kitty_name, "reloaded!")
+            reld()
     for i in pygame.event.get():
         if i.type == pygame.QUIT:
             quit()
@@ -197,8 +194,7 @@ while True:
                     elif (x >= chat.get_butts_pos()[0] and x <= chat.get_butts_pos()[0] + 20 and y >= chat.get_butts_pos()[1] and y <= chat.get_butts_pos()[1] + 20):
                         chat.change_index(-1)
                     elif (x >= chat.get_butts_pos()[0] and x <= chat.get_butts_pos()[0] + 20 and y >= chat.get_butts_pos()[1] + 25 and y <= chat.get_butts_pos()[1] + 45):
-                        chat.change_index(1)
-                
+                        chat.change_index(1)             
                 else:
                     box.disactive()
         if i.type == pygame.KEYDOWN and box.isactive:
@@ -219,7 +215,6 @@ while True:
                 else:
                     box.add_let(i.unicode)
                     
-
             elif i.key == pygame.K_c :
                 mods = pygame.key.get_mods()
                 if mods & pygame.KMOD_CTRL:
@@ -251,13 +246,9 @@ while True:
 
     #  я понимаю, что это жесткий костыль. Я не придумал пока решения лучше, потому fix needed
     lcd_clock.draw()
-    if history:
-        if history[len(history) - 1] == [kitty_name, "__clear__"]:
-            parser.clear_requested()
-            clear_chat_history()
+
     if draw_top_bar:
         bar.draw(["power " + open("/sys/class/power_supply/BAT0/capacity").read() + "%"] +  parser.get_plugs(3))
-
 
 
     pygame.display.update()

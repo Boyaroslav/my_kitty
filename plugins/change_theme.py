@@ -17,14 +17,14 @@ def change_config(msg):
     config = open(conf_path, "r+")
     config_data = config.readlines()
     config.close()
-    config = open(conf_path, "w")
     if msg[0][0] != "#":
 
         if os.path.exists(path + "themes" + slash + ' '.join(msg)):
             theme = open(path + "themes" + slash + ' '.join(msg), "r")
         else:
             #config.close()
-            return "нет такой темы"      
+            return "нет такой темы"  
+        config = open(conf_path, "w")    
 
         #  opening theme in theme directory
         theme_data = theme.readlines()
@@ -34,14 +34,18 @@ def change_config(msg):
         
 
                     if config_data[i][:config_data[i].index("=") - 1].strip() == j[:j.index("=") - 1].strip():
-                        config_data[i] = j
+                        if j[-1] != '\n':
+                            config_data[i] = j + "\n"
+                        else:
+                            config_data[i] = j
 
         config.writelines(config_data)
 
         theme.close()    
         config.close()
-        return "конфиг изменен! Перезапустите меня :("
+        return "конфиг изменен! Перезапустите меня :( Ну или обновите --"
     else:
+        config = open(conf_path, "w")
         
         for i in range(0, len(config_data)):
             if "=" in config_data[i]:
@@ -77,6 +81,8 @@ def answer(msg, **args):
         if len(msg) == 2:
             from . import my_plugs_themes
             return my_plugs_themes.answer("themes")
+            
 
         x = change_config(msg[2:])
+        return x
 

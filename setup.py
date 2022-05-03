@@ -10,20 +10,21 @@ import config
 import os
 from subprocess import Popen, PIPE
 try:
-    deskt = open(os.path.expanduser('~'), "/.local/bin/my_kitty", "w+")
-    os.system("chmod +x ~/.local/bin/my_kitty")
-    
-except:
     deskt = open("/usr/bin/my_kitty", "w+")
     os.system("chmod +x /usr/bin/my_kitty")
+    
+    
+except:
+    deskt = open(os.path.expanduser('~') + "/.local/bin/my_kitty", "w+")
+    os.system("chmod +x ~/.local/bin/my_kitty")
     #deskt = open(os.path.expanduser('~'), "/.local/bin/my_kitty.sh")
 try:
-
-    deskt2 = open(os.path.expanduser('~') + "/.local/share/applications/my_kitty.desktop", "w+")
-except:
     deskt2 = open("/usr/share/applications/my_kitty.desktop", "w+")
+    
+except:
+    deskt2 = open(os.path.expanduser('~') + "/.local/share/applications/my_kitty.desktop", "w+")
 
-file = ["[Desktop Entry]\n", "Name = my_kitty\n", "Version=3.6.6\n", f"Icon = {config.kitty_picture}\n",
+file = ["[Desktop Entry]\n", "Name = my_kitty\n", "Version=3.6.7\n", f"Icon = {config.kitty_picture}\n",
         f"Exec = python3 {config.path}main.pyw\n", "Terminal=false\n", "Type = Application\n"]
 
 deskt2.writelines(file)
