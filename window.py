@@ -1,4 +1,3 @@
-from distutils.command.config import config
 import pygame
 import time
 from text_box import TextBox, Lcd_clock
@@ -10,6 +9,7 @@ from top_bar import Bar
 from importlib import reload
 import sys
 import pyperclip
+import threading
 from datetime import datetime
 
 
@@ -19,6 +19,19 @@ This script use pygame library to render the window
 '''
 
 # инициализация переменных, не входящих в графическую составляющую
+
+
+def import_vosk():
+    try:
+        from voice_recognize import Recognize
+        global rec
+        global vosk_button
+        rec = Recognize(vosk_model_path)
+    except:
+        print("Cant import vosk/pyaudio/speech_recognize")
+
+
+
 
 window_size = (1200, 700)
 
@@ -30,6 +43,13 @@ clock = pygame.time.Clock()
 history = hist()
 parser = Parser(history)
 history.pop_last = parser.pop_last
+rec_ans = ''
+
+if init_vosk:
+    allow_to_get_speech = 0
+    vosk_thread = threading.Thread(target=import_vosk)
+    vosk_thread.start()
+
 
 class Kitty:
     def __init__(self, pict, name, font, text_color):
@@ -104,6 +124,7 @@ def reld():
     global BG_IM
     global top_color
     global kitty_name
+    global recognize
 
     #  нормализация переменных (hex строка не принимается)
     BG = normalize(config.BG)
@@ -126,6 +147,7 @@ def reld():
     #  importing files
     main_chr = pygame.image.load(config.kitty_picture)
     main_chr = pygame.transform.scale(main_chr, config.kitty_image_size)  # rescaling to border size
+
 
     #  Lcd clock for time
     lcd_clock = Lcd_clock(font, config.clock_place, config.clock_colors, datetime, root)
@@ -194,9 +216,14 @@ while True:
                     elif (x >= chat.get_butts_pos()[0] and x <= chat.get_butts_pos()[0] + 20 and y >= chat.get_butts_pos()[1] and y <= chat.get_butts_pos()[1] + 20):
                         chat.change_index(-1)
                     elif (x >= chat.get_butts_pos()[0] and x <= chat.get_butts_pos()[0] + 20 and y >= chat.get_butts_pos()[1] + 25 and y <= chat.get_butts_pos()[1] + 45):
-                        chat.change_index(1)             
+                        chat.change_index(1)
+                    elif (x >= vosk_button_place[0] and x <= vosk_button_place[0] + vosk_button_place[2] and y >= vosk_button_place[1] and y <= vosk_button_place[1] + vosk_button_place[3] and init_vosk):
+                        allow_to_get_speech = 1    
                 else:
                     box.disactive()
+        if i.type == pygame.MOUSEBUTTONUP:
+            allow_to_get_speech = 0
+            rec_ans = ''
         if i.type == pygame.KEYDOWN and box.isactive:
             v = str(i)
             if i.key == pygame.K_BACKSPACE:
@@ -243,13 +270,23 @@ while True:
         box.draw_go_up_down_button()
         chat.draw_buttons()
 
-
     #  я понимаю, что это жесткий костыль. Я не придумал пока решения лучше, потому fix needed
     lcd_clock.draw()
 
     if draw_top_bar:
         bar.draw(["power " + open("/sys/class/power_supply/BAT0/capacity").read() + "%"] +  parser.get_plugs(3))
-
+    if init_vosk:
+        
+        if allow_to_get_speech:
+            pygame.draw.rect(root, vosk_button_color[1], vosk_button_place)
+            try:
+                rec_ans = rec.get_speech()
+                if rec_ans:
+                    box.add_word(rec_ans)
+            except:
+                pass
+        else:
+            pygame.draw.rect(root, vosk_button_color[0], vosk_button_place)
 
     pygame.display.update()
     clock.tick(30)

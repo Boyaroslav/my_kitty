@@ -71,6 +71,10 @@ class TextBox:
             self.text_history = [self.text_history[0]]+ [''.join(self.text[:-1])] + self.text_history[1:]
             self.text = []
         self.pointer += 1
+    
+    def add_word(self, input):
+        self.text = self.text[:self.pointer] + list(input) + [" "] + self.text[self.pointer:]
+        self.pointer += len(input) + 1
 
 
     def del_let(self):

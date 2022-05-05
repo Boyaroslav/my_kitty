@@ -4,3 +4,5 @@ pygame==2.1.2
 requests==2.27.1
 pyperclip==1.8.2
 importlib-metadata==4.6.4
+vosk==0.3.37
+SpeechRecognition==3.8.1
