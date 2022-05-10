@@ -24,7 +24,7 @@ try:
 except:
     deskt2 = open(os.path.expanduser('~') + "/.local/share/applications/my_kitty.desktop", "w+")
 
-file = ["[Desktop Entry]\n", "Name = my_kitty\n", "Version=3.7\n", f"Icon = {config.kitty_picture}\n",
+file = ["[Desktop Entry]\n", "Name = my_kitty\n", "Version=3.7.5\n", f"Icon = {config.kitty_picture}\n",
         f"Exec = python3 {config.path}main.pyw\n", "Terminal=false\n", "Type = Application\n"]
 
 deskt2.writelines(file)

@@ -5,6 +5,8 @@ Bobylev Yaroslav 2022
 github - https://github.com/Boyaroslav
 '''
 
+info = "постараюсь сделать вам приятно"
+
 def answer(msg, *args):
 
 

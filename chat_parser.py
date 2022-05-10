@@ -46,22 +46,20 @@ class Parser:
                         while i:
                             if len(i) <= maxlen_message:
                                 self.history.send_msg(i, user=kitty_name)
-                                ans = ''
                                 break
                             else:
-                                self.history.send_msg(i[:len(i) % (maxlen_message + 1)], user=kitty_name)
-                                i = i[len(i) % (maxlen_message + 1):]
+                                self.history.send_msg(str(i[:maxlen_message - 1]), user=kitty_name)
+                                i = ' - ' + i[maxlen_message - 1:]
                
 
                 else:
                     while ans:
                         if len(ans) <= maxlen_message:
                             self.history.send_msg(ans, user=kitty_name)
-                            ans = ''
                             break
                         else:
-                            self.history.send_msg(ans[:len(ans) % (maxlen_message)], user=kitty_name)
-                            ans = ans[maxlen_message:]
+                            self.history.send_msg(str(ans[:maxlen_message - 1]), user=kitty_name)
+                            ans = ' - ' + ans[maxlen_message - 1:]
                 break
 
 

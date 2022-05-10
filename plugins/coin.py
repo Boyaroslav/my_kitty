@@ -5,6 +5,7 @@ from random import choice
 github - https://github.com/bulochkasyablokom
 '''
 
+info = "наберите монетка/подбрось монетку чтобы узнать орла или решку."
 
 def answer(msg, *args):
     coin = choice(["орел", "решка"])

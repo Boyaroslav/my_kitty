@@ -57,7 +57,8 @@ kitty_name = "Kitty"
 chat_rectangle_place = (500, 50, 600, 500)
 
 count_messages_visible = 17
-maxlen_message = 100
+maxlen_message = 60
+maxlen_textbox_message = 70
 
 chat_kitty_text = (255, 192, 203)
 
@@ -115,7 +116,7 @@ BG_blur = 1
 #  Я не утверждаю, что данная фича будет работать на всех девайсах. Я не до конца разобрался.
 #  Если что то будет не получаться или ломаться, то пишите в телеграм - @GammaGamespredstavitel
 #  https://alphacephei.com/vosk/models - модели
-init_vosk = True
+init_vosk = False
 
 vosk_model_path = path + "etc/vosk-model-small-ru-0.22"
 

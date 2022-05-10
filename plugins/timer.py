@@ -1,7 +1,13 @@
+'''
+Bobylev Yaroslav 2022
+github - https://github.com/Boyaroslav
+'''
+
 import time
 from os import name as os_name
 from config import path
 
+info = "timer/таймер {n} секунд/минут/часов и тд. Я таймер лол"
 
 def timer(sleep_time, string):
     time.sleep(sleep_time)

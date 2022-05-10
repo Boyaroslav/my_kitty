@@ -3,6 +3,9 @@
 Bobylev Yaroslav 2022
 github - https://github.com/Boyaroslav
 '''
+
+info = "Поздороваться любыми словами - получишь милость в ответ ;)"
+
 def answer(msg, *args):
     from random import choice
 

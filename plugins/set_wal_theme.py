@@ -6,6 +6,7 @@ import os
 Bobylev Yaroslav 2022
 github - https://github.com/Boyaroslav
 '''
+info = "установите pywal, чтобы я работал. Я меняю тему в соответствии с картинкой. 'wal {путь}'"
 
 def change(pth):
     try:

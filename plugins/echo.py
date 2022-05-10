@@ -5,8 +5,7 @@ Bobylev Yaroslav 2022
 analog of echo script
 '''
 
-
-
+info = "echo/say/скажи : вывести фразу на экран"
 
 def answer(msg, *args):
     g = msg.split()

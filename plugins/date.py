@@ -1,3 +1,10 @@
+'''
+Bobylev Yaroslav 2022
+github - https://github.com/Boyaroslav
+'''
+
+info = "скажу тебе сегодняшнюю дату/час/минуту и тд"
+
 from datetime import datetime
 
 def answer(msg, **args):

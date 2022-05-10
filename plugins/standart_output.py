@@ -9,6 +9,8 @@ Bobylev Yaroslav 2022
 github - https://github.com/Boyaroslav
 '''
 
+info = "Я тут самый главный и я говорю за всех если никто не может"
+
 def answer(msg, history, *args):
     if len(history) > 2:
         if history.count('plugins.weather') > len(history) // 2:

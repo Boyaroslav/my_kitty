@@ -4,6 +4,8 @@ Bobylev Yaroslav 2022
 https://github.com/Boyaroslav
 '''
 
+info = "скажу какие у тебя темы/плагины"
+
 import os
 
 def answer(msg, *args):

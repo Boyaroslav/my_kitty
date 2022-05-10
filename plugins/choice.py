@@ -1,3 +1,10 @@
+'''
+Bobyler Yaroslav 2022
+github - https://github.com/Boyaroslav
+'''
+
+info = "если в спросите меня выбрать одну вещь или другую, то я вам помогу"
+
 from random import choice
 
 def answer(msg, *args):

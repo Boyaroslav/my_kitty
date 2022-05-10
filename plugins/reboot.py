@@ -1,6 +1,9 @@
+'''
+Bobylev Yaroslav 2022
+github - https://github.com/Boyaroslav
+'''
 
-import pygame
-
+info = "перезапущу my_kitty. Наберите reboot/перезапуск"
 
 def rbt(x):
     import os

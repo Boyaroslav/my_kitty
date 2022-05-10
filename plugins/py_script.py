@@ -4,6 +4,9 @@ import os
 Bobylev Yaroslav 2022
 github - https://github.com/Boyaroslav
 '''
+
+info = "исполню скрипт python"
+
 def answer(arg, *args):
     print(arg.split()[0])
     if arg.split()[0] == "python":

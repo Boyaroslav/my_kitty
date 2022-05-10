@@ -6,6 +6,8 @@ Bobylev Yaroslav 2022
 github - https://github.com/Boyaroslav
 '''
 
+info = "смайлик - рандомный смайлик"
+
 def answer(msg, *args):
     msg = msg.split()
     emoji = ["(·^·)", "*\(≖‿≖*\)", "(⌐■_■)", "<(^_^)>", "(0 3 0)", "(/◡_◡) /O",

@@ -154,7 +154,7 @@ def reld():
     #  window icon
     pygame.display.set_icon(main_chr)
     #  bar to input text
-    box = TextBox(root, config.chat_kitty_text, config.box_color, config.text_box_place, main_font, history,  config.maxlen_message, config.button_color1, config.path)
+    box = TextBox(root, config.chat_kitty_text, config.box_color, config.text_box_place, main_font, history,  config.maxlen_textbox_message, config.button_color1, config.path)
     is_backspace = 0
     # box with chat
     chat = Chat(root, config.chat_box_place, config.Chat_BG, main_font)
@@ -238,14 +238,20 @@ while True:
             elif i.key == pygame.K_v:
                 mods = pygame.key.get_mods()
                 if mods & pygame.KMOD_CTRL:
-                    box.paste(str(pyperclip.paste()))
+                    try:
+                        box.paste(str(pyperclip.paste()))
+                    except:
+                        print("ERROR WITH pyperclip module")
                 else:
                     box.add_let(i.unicode)
                     
             elif i.key == pygame.K_c :
                 mods = pygame.key.get_mods()
                 if mods & pygame.KMOD_CTRL:
-                    pyperclip.copy(''.join(box.text))
+                    try:
+                        pyperclip.copy(''.join(box.text))
+                    except:
+                        print("ERROR WITH pyperclip module")
                 else:
                     box.add_let(i.unicode)
             else:

@@ -1,3 +1,10 @@
+'''
+Bobyler Yaroslav 2022
+github - https://github.com/Boyaroslav
+'''
+
+info = "наберите 'установи тему {тема}', чтобы установить тему на my_kitty"
+
 def change_config(msg):
     
     import os

@@ -7,6 +7,8 @@ github - https://github.com/Boyaroslav
 need beautifulsoup4 module
 '''
 
+info = "Скажу вам погоду. 'погода в {место}'"
+
 def parse_weather(country, city):
     if country:
         search = f"{country}+{city}"

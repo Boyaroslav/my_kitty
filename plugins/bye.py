@@ -4,6 +4,9 @@ from random import choice
 Bobyler Yaroslav 2022
 github - https://github.com/Boyaroslav
 '''
+
+info = "попрощайтесь со мной, и я выключусь :("
+
 def answer(msg, *args):
 
 

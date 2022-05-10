@@ -43,7 +43,7 @@ class TextBox:
 
         text2 = self.font.render(''.join(self.text[leng:]), True, self.BGcolor)
         self.root.blit(text2, self.place[:2])
-        wid, hei = self.font.size(''.join(self.text[:self.pointer]))
+        wid, hei = self.font.size(''.join(self.text[leng:self.pointer]))
         pygame.draw.rect(self.root, self.button_color1,  (self.place[0] + wid, self.place[1], 2, hei))
 
     def active(self):

@@ -3,6 +3,8 @@ Bobylev Yaroslav
 https://github.com/Boyaroslav
 '''
 
+info = "neofetch/информация о системе. Даю информацию об ос"
+
 def answer(msg, *args):
     if msg not in ["system information", "информация о системе", "sys info", "neofetch", "система", "моя система", "my system"]:
         return None

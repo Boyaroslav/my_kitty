@@ -5,7 +5,7 @@ from os import name as os_name
 Bobylev Yaroslav 2022
 github - https://github.com/Boyaroslav
 '''
-
+info = "наберите clear/clean/очистить/удали историю чтобы очистить историю"
 
 def answer(msg, *args):
     need = ["clear", "очистить", "удали историю", "clean"]
